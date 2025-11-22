@@ -139,6 +139,7 @@ function ContactForm() {
 function ScrollTransitionSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const hasTransitionedRef = useRef(false);
   const [imageOpacity, setImageOpacity] = useState(0);
   const [isSticky, setIsSticky] = useState(true);
 
@@ -158,11 +159,10 @@ function ScrollTransitionSection() {
 
       setImageOpacity(progress);
 
-      // Stop being sticky once image is fully visible (opacity >= 1)
-      if (progress >= 1) {
+      // Transition from sticky to relative only once, when fade is complete
+      if (progress >= 0.99 && !hasTransitionedRef.current) {
+        hasTransitionedRef.current = true;
         setIsSticky(false);
-      } else {
-        setIsSticky(true);
       }
     };
 
