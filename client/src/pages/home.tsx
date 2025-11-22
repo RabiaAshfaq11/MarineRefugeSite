@@ -137,8 +137,10 @@ function ContactForm() {
 }
 
 function ScrollTransitionSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [imageOpacity, setImageOpacity] = useState(0);
+  const [isSticky, setIsSticky] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -148,17 +150,20 @@ function ScrollTransitionSection() {
       const sectionHeight = sectionRef.current.offsetHeight;
 
       // Calculate progress from 0 to 1 as user scrolls through the section
-      // Section starts showing when its top enters viewport
-      // Section ends when its bottom leaves viewport
-      const scrollStart = window.innerHeight; // Top of section
-      const scrollEnd = 0; // Bottom of section
-
+      const scrollStart = window.innerHeight;
       const progress = Math.max(
         0,
         Math.min(1, (scrollStart - sectionRect.top) / (scrollStart + sectionHeight))
       );
 
       setImageOpacity(progress);
+
+      // Stop being sticky once image is fully visible (opacity >= 1)
+      if (progress >= 1) {
+        setIsSticky(false);
+      } else {
+        setIsSticky(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -167,29 +172,35 @@ function ScrollTransitionSection() {
 
   return (
     <div
-      ref={sectionRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      data-testid="section-scroll-transition"
+      ref={containerRef}
+      className={`${isSticky ? "sticky top-0" : "relative"} h-screen z-10`}
+      data-testid="section-scroll-transition-container"
     >
-      {/* Background Image 1 */}
-      <img
-        src={technologyImage1}
-        alt="Amphibious housing in nature"
-        className="absolute inset-0 w-full h-full object-cover"
-        data-testid="img-technology-1"
-      />
+      <div
+        ref={sectionRef}
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+        data-testid="section-scroll-transition"
+      >
+        {/* Background Image 1 */}
+        <img
+          src={technologyImage1}
+          alt="Amphibious housing in nature"
+          className="absolute inset-0 w-full h-full object-cover"
+          data-testid="img-technology-1"
+        />
 
-      {/* Overlay Image 2 with scroll-based opacity */}
-      <img
-        src={technologyImage2}
-        alt="Amphibious housing in water"
-        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-        style={{ opacity: imageOpacity }}
-        data-testid="img-technology-2"
-      />
+        {/* Overlay Image 2 with scroll-based opacity */}
+        <img
+          src={technologyImage2}
+          alt="Amphibious housing in water"
+          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+          style={{ opacity: imageOpacity }}
+          data-testid="img-technology-2"
+        />
 
-      {/* Dark overlay for better text contrast if needed */}
-      <div className="absolute inset-0 bg-black/20" />
+        {/* Dark overlay for better text contrast if needed */}
+        <div className="absolute inset-0 bg-black/20" />
+      </div>
     </div>
   );
 }
