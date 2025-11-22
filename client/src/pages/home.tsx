@@ -48,7 +48,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
-              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8" />
+              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
               <span className={`text-xl font-bold transition-colors duration-300 ${
                 scrolled ? "text-primary" : "text-white"
               }`} data-testid="text-brand-name">
