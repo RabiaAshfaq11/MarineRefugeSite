@@ -239,7 +239,7 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("fade-up", "fade-in-left");
+          entry.target.classList.add("fade-up");
           observer.unobserve(entry.target);
         }
       });
