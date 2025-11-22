@@ -111,9 +111,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight" data-testid="text-hero-title">
-            Protecting Communities Through Innovative Amphibious Housing
-          </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto" data-testid="text-hero-subtitle">
             Climate-resilient solutions for coastal communities facing rising
             sea levels and flooding
