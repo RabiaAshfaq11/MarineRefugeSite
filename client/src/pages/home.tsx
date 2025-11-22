@@ -23,7 +23,9 @@ import sdg11 from "@assets/E-Goal-11-1024x1024_1763798715992.png";
 import sdg13 from "@assets/sdg13_1763798707208.png";
 import maryamPhoto from "@assets/image_1763810244469.png";
 import ayaanPhoto from "@assets/image_1763810279447.png";
-import { useState, useEffect } from "react";
+import technologyImage1 from "@assets/3_1763810423345.png";
+import technologyImage2 from "@assets/1_1763810432206.png";
+import { useState, useEffect, useRef } from "react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -131,6 +133,64 @@ function ContactForm() {
         </Button>
       </form>
     </Form>
+  );
+}
+
+function ScrollTransitionSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [imageOpacity, setImageOpacity] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const sectionRect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = sectionRef.current.offsetHeight;
+
+      // Calculate progress from 0 to 1 as user scrolls through the section
+      // Section starts showing when its top enters viewport
+      // Section ends when its bottom leaves viewport
+      const scrollStart = window.innerHeight; // Top of section
+      const scrollEnd = 0; // Bottom of section
+
+      const progress = Math.max(
+        0,
+        Math.min(1, (scrollStart - sectionRect.top) / (scrollStart + sectionHeight))
+      );
+
+      setImageOpacity(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div
+      ref={sectionRef}
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      data-testid="section-scroll-transition"
+    >
+      {/* Background Image 1 */}
+      <img
+        src={technologyImage1}
+        alt="Amphibious housing in nature"
+        className="absolute inset-0 w-full h-full object-cover"
+        data-testid="img-technology-1"
+      />
+
+      {/* Overlay Image 2 with scroll-based opacity */}
+      <img
+        src={technologyImage2}
+        alt="Amphibious housing in water"
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+        style={{ opacity: imageOpacity }}
+        data-testid="img-technology-2"
+      />
+
+      {/* Dark overlay for better text contrast if needed */}
+      <div className="absolute inset-0 bg-black/20" />
+    </div>
   );
 }
 
@@ -446,6 +506,65 @@ export default function Home() {
                 Development & Testing
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Technology Behind It Section */}
+      <section className="py-20 md:py-32 bg-accent/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-technology-label">
+              Innovation
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground" data-testid="text-technology-title">
+              The Technology Behind It
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll Transition Section */}
+      <ScrollTransitionSection />
+
+      {/* Benefits Section */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-benefits-label">
+              Advantages
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-benefits-title">
+              Benefits of Amphibious Housing
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-benefit-1">
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-benefit-1-title">
+                Climate Resilience
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-benefit-1-description">
+                Homes that adapt to rising water levels and extreme weather, protecting families and property from flood damage.
+              </p>
+            </Card>
+
+            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-benefit-2">
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-benefit-2-title">
+                Economic Sustainability
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-benefit-2-description">
+                Reduce reconstruction costs and insurance premiums with technology that works with nature instead of against it.
+              </p>
+            </Card>
+
+            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-benefit-3">
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-benefit-3-title">
+                Dignity & Community
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-benefit-3-description">
+                Enable communities to stay in their homes and maintain their way of life while building a sustainable future.
+              </p>
+            </Card>
           </div>
         </div>
       </section>
