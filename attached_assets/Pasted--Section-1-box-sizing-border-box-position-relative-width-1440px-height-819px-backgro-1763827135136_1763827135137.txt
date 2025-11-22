@@ -1,0 +1,301 @@
+/* Section 1 */
+
+box-sizing: border-box;
+
+position: relative;
+width: 1440px;
+height: 819px;
+
+background: #5B62AE;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 2px;
+
+
+/* Desktop - 1 */
+
+position: relative;
+width: 1440px;
+height: 854px;
+left: 0px;
+top: -7px;
+
+background: #23454C;
+
+
+/* Asset 2 1 */
+
+position: absolute;
+width: 391px;
+height: 286px;
+left: 526px;
+top: 343px;
+
+background: url(Asset 2.png);
+
+
+
+
+position: relative;
+width: 460px;
+height: 253px;
+left: 40px;
+top: 229px;
+
+background: rgba(255, 255, 255, 0.1);
+
+
+/* Amphibious Housing Design */
+
+position: absolute;
+width: 357px;
+height: 48px;
+left: calc(50% - 357px/2 - 24.5px);
+top: 30px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+
+color: #07EBE1;
+
+
+
+/* We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage. */
+
+position: absolute;
+width: 407px;
+height: 158px;
+left: calc(50% - 407px/2 + 0.5px);
+top: 95px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 27px;
+
+color: #FFFFFF;
+
+
+
+
+
+position: relative;
+width: 460px;
+height: 265px;
+left: 40px;
+top: 528px;
+
+background: rgba(255, 255, 255, 0.1);
+
+
+/* Climate Adaptation Research */
+
+position: absolute;
+width: 338px;
+height: 29px;
+left: 25px;
+top: 26px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #07EBE1;
+
+
+
+/* Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning. */
+
+position: absolute;
+width: 407px;
+height: 158px;
+left: calc(50% - 407px/2 - 1.5px);
+top: 106px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 27px;
+
+color: #FFFFFF;
+
+
+
+/* Vector 1 */
+
+position: absolute;
+width: 461px;
+height: 0px;
+left: -1px;
+top: -46px;
+
+border: 2px solid #07EBE1;
+transform: rotate(0.12deg);
+
+
+/* Vector 2 */
+
+position: absolute;
+width: 461px;
+height: 0px;
+left: -2px;
+top: 263px;
+
+border: 2px solid #07EBE1;
+transform: rotate(0.12deg);
+
+
+
+
+position: relative;
+width: 459px;
+height: 253px;
+left: 940px;
+top: 229px;
+
+background: rgba(255, 255, 255, 0.1);
+
+
+/* Community Engagement */
+
+position: absolute;
+width: 287px;
+height: 29px;
+left: 26px;
+top: 25px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #07EBE1;
+
+
+
+/* We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life. */
+
+position: absolute;
+width: 407px;
+height: 158px;
+left: calc(50% - 407px/2);
+top: 95px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 27px;
+
+color: #FFFFFF;
+
+
+
+
+
+position: relative;
+width: 459px;
+height: 265px;
+left: 940px;
+top: 528px;
+
+background: rgba(255, 255, 255, 0.1);
+
+
+/* Sustainable Design */
+
+position: absolute;
+width: 224px;
+height: 29px;
+left: 28px;
+top: 21px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 24px;
+line-height: 29px;
+/* identical to box height */
+
+color: #07EBE1;
+
+
+
+/* Build with eco-friendly materials and designed to minimize environmental impact. */
+
+position: absolute;
+width: 407px;
+height: 158px;
+left: calc(50% - 407px/2);
+top: 156px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 500;
+font-size: 22px;
+line-height: 27px;
+
+color: #FFFFFF;
+
+
+
+/* Vector 4 */
+
+position: absolute;
+width: 461px;
+height: 0px;
+left: -1px;
+top: 264px;
+
+border: 2px solid #07EBE1;
+transform: rotate(0.12deg);
+
+
+/* What we do */
+
+position: absolute;
+width: 156px;
+height: 48px;
+left: 642px;
+top: 55px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 24px;
+line-height: 29px;
+
+color: #07EBE1;
+
+
+
+/* image 2 */
+
+position: absolute;
+width: 157px;
+height: 171px;
+left: 1006px;
+top: -232px;
+
+background: url(image.png);
+
+
+/* Vector 3 */
+
+position: absolute;
+width: 461px;
+height: 0px;
+left: 939px;
+top: 483px;
+
+border: 2px solid #07EBE1;
+transform: rotate(0.12deg);

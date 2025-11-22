@@ -373,67 +373,256 @@ export default function Home() {
       </section>
 
       {/* What We Do Section */}
-      <section id="what-we-do" className="py-20 md:py-32 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3" data-testid="text-what-we-do-label">
-              What We Do
-            </p>
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground" data-testid="text-what-we-do-title">
-              Our Key Activities
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-white p-10 rounded-md" data-testid="card-activity-1">
-              <div className="mb-8">
-                <Building2 className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-1-title">
-                Amphibious Housing Design
-              </h3>
-              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-1-description">
-                We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage.
+      <section
+        id="what-we-do"
+        style={{
+          backgroundColor: "#5B62AE",
+          position: "relative",
+          width: "100%",
+          minHeight: "854px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "#23454C",
+            width: "100%",
+            position: "relative",
+            paddingTop: "60px",
+            paddingBottom: "60px",
+          }}
+        >
+          <div style={{ maxWidth: "1440px", margin: "0 auto", paddingLeft: "40px", paddingRight: "40px" }}>
+            {/* What we do label */}
+            <div style={{ textAlign: "center", marginBottom: "20px" }}>
+              <p
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "24px",
+                  fontWeight: 400,
+                  lineHeight: "29px",
+                  color: "#07EBE1",
+                  margin: 0,
+                  letterSpacing: "0.5px",
+                }}
+                data-testid="text-what-we-do-label"
+              >
+                What we do
               </p>
             </div>
 
-            <div className="bg-white p-10 rounded-md" data-testid="card-activity-2">
-              <div className="mb-8">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-2-title">
-                Community Engagement
-              </h3>
-              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-2-description">
-                We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life.
-              </p>
+            {/* Our Key Activities Title */}
+            <div style={{ textAlign: "center", marginBottom: "60px" }}>
+              <h2
+                style={{
+                  fontFamily: "Inter",
+                  fontSize: "40px",
+                  fontWeight: 600,
+                  lineHeight: "48px",
+                  color: "#07EBE1",
+                  margin: 0,
+                }}
+                data-testid="text-what-we-do-title"
+              >
+                Our Key Activities
+              </h2>
             </div>
 
-            <div className="bg-white p-10 rounded-md" data-testid="card-activity-3">
-              <div className="mb-8">
-                <Shield className="w-8 h-8 text-primary" />
+            {/* Grid of 4 cards - 2x2 */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "30px",
+                maxWidth: "1000px",
+                margin: "0 auto",
+              }}
+            >
+              {/* Card 1 - Amphibious Housing Design */}
+              <div
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: "40px",
+                  position: "relative",
+                  minHeight: "253px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
+                data-testid="card-activity-1"
+              >
+                <h3
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "24px",
+                    fontWeight: 600,
+                    lineHeight: "29px",
+                    color: "#07EBE1",
+                    marginTop: 0,
+                    marginBottom: "30px",
+                    marginLeft: 0,
+                    marginRight: 0,
+                  }}
+                  data-testid="text-activity-1-title"
+                >
+                  Amphibious Housing Design
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "22px",
+                    fontWeight: 500,
+                    lineHeight: "27px",
+                    color: "#FFFFFF",
+                    margin: 0,
+                  }}
+                  data-testid="text-activity-1-description"
+                >
+                  We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-3-title">
-                Climate Adaptation Research
-              </h3>
-              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-3-description">
-                Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning.
-              </p>
-            </div>
 
-            <div className="bg-white p-10 rounded-md" data-testid="card-activity-4">
-              <div className="mb-8">
-                <Waves className="w-8 h-8 text-primary" />
+              {/* Card 2 - Community Engagement */}
+              <div
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: "40px",
+                  position: "relative",
+                  minHeight: "253px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
+                data-testid="card-activity-2"
+              >
+                <h3
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "24px",
+                    fontWeight: 600,
+                    lineHeight: "29px",
+                    color: "#07EBE1",
+                    marginTop: 0,
+                    marginBottom: "30px",
+                    marginLeft: 0,
+                    marginRight: 0,
+                  }}
+                  data-testid="text-activity-2-title"
+                >
+                  Community Engagement
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "22px",
+                    fontWeight: 500,
+                    lineHeight: "27px",
+                    color: "#FFFFFF",
+                    margin: 0,
+                  }}
+                  data-testid="text-activity-2-description"
+                >
+                  We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life.
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-4-title">
-                Sustainable Design
-              </h3>
-              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-4-description">
-                Build with eco-friendly materials and designed to minimize environmental impact.
-              </p>
+
+              {/* Card 3 - Climate Adaptation Research */}
+              <div
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: "40px",
+                  position: "relative",
+                  minHeight: "265px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  borderTop: "2px solid #07EBE1",
+                  borderBottom: "2px solid #07EBE1",
+                }}
+                data-testid="card-activity-3"
+              >
+                <h3
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "24px",
+                    fontWeight: 600,
+                    lineHeight: "29px",
+                    color: "#07EBE1",
+                    marginTop: 0,
+                    marginBottom: "30px",
+                    marginLeft: 0,
+                    marginRight: 0,
+                  }}
+                  data-testid="text-activity-3-title"
+                >
+                  Climate Adaptation Research
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "22px",
+                    fontWeight: 500,
+                    lineHeight: "27px",
+                    color: "#FFFFFF",
+                    margin: 0,
+                  }}
+                  data-testid="text-activity-3-description"
+                >
+                  Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning.
+                </p>
+              </div>
+
+              {/* Card 4 - Sustainable Design */}
+              <div
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  padding: "40px",
+                  position: "relative",
+                  minHeight: "265px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  borderBottom: "2px solid #07EBE1",
+                }}
+                data-testid="card-activity-4"
+              >
+                <h3
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "24px",
+                    fontWeight: 600,
+                    lineHeight: "29px",
+                    color: "#07EBE1",
+                    marginTop: 0,
+                    marginBottom: "30px",
+                    marginLeft: 0,
+                    marginRight: 0,
+                  }}
+                  data-testid="text-activity-4-title"
+                >
+                  Sustainable Design
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "Inter",
+                    fontSize: "22px",
+                    fontWeight: 500,
+                    lineHeight: "27px",
+                    color: "#FFFFFF",
+                    margin: 0,
+                  }}
+                  data-testid="text-activity-4-description"
+                >
+                  Build with eco-friendly materials and designed to minimize environmental impact.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* SDG Section */}
       <section className="py-20 md:py-32 bg-accent/10">
