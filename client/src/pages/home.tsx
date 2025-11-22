@@ -173,7 +173,7 @@ function ScrollTransitionSection() {
   return (
     <div
       ref={containerRef}
-      className={`${isSticky ? "sticky top-0" : "relative"} h-screen z-10`}
+      className={`${isSticky ? "sticky top-0 z-10" : "relative z-0"} h-screen`}
       data-testid="section-scroll-transition-container"
     >
       <div
