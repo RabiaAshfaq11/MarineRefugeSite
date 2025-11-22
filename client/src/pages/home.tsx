@@ -229,19 +229,17 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-          <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto" data-testid="text-hero-subtitle">
-            Climate-resilient solutions for coastal communities facing rising
-            sea levels and flooding
-          </p>
-          <Button
-            onClick={() => scrollToSection("about")}
-            size="lg"
-            className="bg-white/10 backdrop-blur-md border-2 border-white/30 text-white hover:bg-white/20"
-            data-testid="button-hero-cta"
-          >
-            Discover Our Mission
-            <ChevronRight className="ml-2 w-5 h-5" />
-          </Button>
+          <div className="absolute bottom-8 left-8 p-6">
+            
+          </div>
+          <div className="absolute bottom-8 right-8 p-6 text-right">
+            <h1 className="text-4xl font-bold text-white" data-testid="text-hero-title">
+              Marine Refuge
+            </h1>
+            <p className="text-xl text-white/90" data-testid="text-hero-subtitle">
+              Homes that stand by you
+            </p>
+          </div>
         </div>
       </section>
 
