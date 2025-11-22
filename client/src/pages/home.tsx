@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import heroImage from "@assets/pexels-andriall-11918086_1763801753953.jpg";
 import logoGreen from "@assets/Asset 1_1763803151514.png";
+import logoLight from "@assets/logo_1763828904319.png";
+import logoHouse from "@assets/Asset 1_1763828952763.png";
 import logo1 from "@assets/image_1763805395713.png";
 import logo2 from "@assets/image_1763805402347.png";
 import logo3 from "@assets/image_1763805408141.png";
@@ -378,7 +380,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
-              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
+              <img 
+                src={scrolled ? logoHouse : logoLight} 
+                alt="Marine Refuge" 
+                className={`h-8 transition-all duration-300 ${scrolled ? "w-8" : "w-auto"}`}
+              />
               <span className={`text-xl font-bold transition-colors duration-300 ${
                 scrolled ? "text-primary" : "text-white"
               }`} data-testid="text-brand-name">
