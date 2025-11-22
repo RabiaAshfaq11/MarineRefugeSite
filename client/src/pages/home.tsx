@@ -277,10 +277,32 @@ export default function Home() {
           <div className="overflow-hidden relative">
             <div className="flex animate-scroll gap-16 items-center">
               <div className="flex gap-16 items-center min-w-max">
-                <img src={companyLogos} alt="Partner logos" className="h-16 object-contain" />
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
+                  <img src={companyLogos} alt="Partner 1" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
+                  <img src={companyLogos} alt="Partner 2" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
+                  <img src={companyLogos} alt="Partner 3" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
+                  <img src={companyLogos} alt="Partner 4" className="h-12 object-contain" />
+                </div>
               </div>
               <div className="flex gap-16 items-center min-w-max">
-                <img src={companyLogos} alt="Partner logos" className="h-16 object-contain" />
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-1-copy">
+                  <img src={companyLogos} alt="Partner 1" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-2-copy">
+                  <img src={companyLogos} alt="Partner 2" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-3-copy">
+                  <img src={companyLogos} alt="Partner 3" className="h-12 object-contain" />
+                </div>
+                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-4-copy">
+                  <img src={companyLogos} alt="Partner 4" className="h-12 object-contain" />
+                </div>
               </div>
             </div>
           </div>
