@@ -139,41 +139,60 @@ function ContactForm() {
 function ScrollTransitionSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const hasTransitionedRef = useRef(false);
+  const sectionStartRef = useRef(0);
   const [imageOpacity, setImageOpacity] = useState(0);
-  const [isSticky, setIsSticky] = useState(true);
+  const [isTransitionComplete, setIsTransitionComplete] = useState(false);
 
   useEffect(() => {
+    // Store the initial position of the section
+    if (sectionRef.current) {
+      sectionStartRef.current = sectionRef.current.offsetTop;
+    }
+
     const handleScroll = () => {
-      if (!sectionRef.current) return;
+      if (!sectionRef.current || !containerRef.current) return;
 
-      const sectionRect = sectionRef.current.getBoundingClientRect();
       const sectionHeight = sectionRef.current.offsetHeight;
+      const sectionTop = sectionRef.current.offsetTop;
+      const scrollY = window.scrollY;
 
-      // Calculate progress from 0 to 1 as user scrolls through the section
-      const scrollStart = window.innerHeight;
-      const progress = Math.max(
+      // Calculate progress: how much we've scrolled into the section
+      const scrollProgress = Math.max(
         0,
-        Math.min(1, (scrollStart - sectionRect.top) / (scrollStart + sectionHeight))
+        Math.min(1, (scrollY - sectionTop + window.innerHeight) / (window.innerHeight + sectionHeight))
       );
 
-      setImageOpacity(progress);
+      setImageOpacity(scrollProgress);
 
-      // Transition from sticky to relative only once, when fade is complete
-      if (progress >= 0.99 && !hasTransitionedRef.current) {
-        hasTransitionedRef.current = true;
-        setIsSticky(false);
+      // Once scroll progress reaches completion, allow normal scrolling
+      if (scrollProgress >= 0.99) {
+        setIsTransitionComplete(true);
+      }
+
+      // Apply sticky positioning during transition
+      if (!isTransitionComplete && scrollY >= sectionTop - window.innerHeight) {
+        containerRef.current!.style.position = "fixed";
+        containerRef.current!.style.top = "0";
+        containerRef.current!.style.left = "0";
+        containerRef.current!.style.right = "0";
+        containerRef.current!.style.zIndex = "10";
+      } else if (!isTransitionComplete) {
+        containerRef.current!.style.position = "relative";
+        containerRef.current!.style.zIndex = "0";
+      } else {
+        containerRef.current!.style.position = "relative";
+        containerRef.current!.style.zIndex = "0";
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isTransitionComplete]);
 
   return (
     <div
       ref={containerRef}
-      className={`${isSticky ? "sticky top-0 z-10" : "relative z-0"} h-screen`}
+      className="h-screen"
       data-testid="section-scroll-transition-container"
     >
       <div
