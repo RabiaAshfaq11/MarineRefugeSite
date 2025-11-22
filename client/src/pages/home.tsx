@@ -1,7 +1,13 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, Waves, Building2, Users, Shield, Linkedin } from "lucide-react";
+import { ChevronRight, Waves, Building2, Users, Shield, Linkedin, Mail, Phone, MapPin, Send } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import heroImage from "@assets/pexels-andriall-11918086_1763801753953.jpg";
 import logoGreen from "@assets/Asset 1_1763803151514.png";
 import logo1 from "@assets/image_1763805395713.png";
@@ -16,6 +22,115 @@ import sdg9 from "@assets/sdg9-en_1763798707207.png";
 import sdg11 from "@assets/E-Goal-11-1024x1024_1763798715992.png";
 import sdg13 from "@assets/sdg13_1763798707208.png";
 import { useState, useEffect } from "react";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email"),
+  organization: z.string().optional(),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+function ContactForm() {
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      organization: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    console.log("Form submitted:", data);
+    // Here you can add email service integration like Sendgrid, Resend, or EmailJS
+    form.reset();
+  };
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="contact-form">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-foreground">
+                Name <span className="text-destructive">*</span>
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" {...field} data-testid="input-name" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-foreground">
+                Email <span className="text-destructive">*</span>
+              </FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="your@email.com" {...field} data-testid="input-email" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="organization"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-foreground">Organization</FormLabel>
+              <FormControl>
+                <Input placeholder="Your organization (optional)" {...field} data-testid="input-organization" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-foreground">
+                Message <span className="text-destructive">*</span>
+              </FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="Tell us about your interest in amphibious housing..."
+                  className="resize-none min-h-32"
+                  {...field}
+                  data-testid="textarea-message"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <Button
+          type="submit"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+          data-testid="button-send-message"
+        >
+          <Send className="w-4 h-4 mr-2" />
+          Send Message
+        </Button>
+      </form>
+    </Form>
+  );
+}
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -356,22 +471,110 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-32">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-contact-title">
-            Get in Touch
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8" data-testid="text-contact-description">
-            Interested in learning more about our amphibious housing solutions?
-            We'd love to hear from you.
-          </p>
-          <Button
-            size="lg"
-            data-testid="button-contact"
-          >
-            Contact Us
-          </Button>
+      {/* Get Involved Section */}
+      <section id="contact" className="py-20 md:py-32 bg-background">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-get-involved-title">
+              Get Involved
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-get-involved-subtitle">
+              Join us in building climate-resilient communities. Whether you're a government, NGO, investor, or community leader, there's a role for you in this movement.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Left Column - Contact Form */}
+            <div className="bg-muted/30 rounded-md p-8">
+              <h3 className="text-2xl font-bold text-foreground mb-8" data-testid="text-contact-form-title">
+                Send Us a Message
+              </h3>
+              <ContactForm />
+            </div>
+
+            {/* Right Column - Ways to Contribute and Contact Info */}
+            <div className="space-y-12">
+              <div className="bg-accent/10 rounded-md p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-6" data-testid="text-ways-to-contribute-title">
+                  Ways to Contribute
+                </h3>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-partner-title">
+                      <span className="w-3 h-3 bg-primary rounded-full" />
+                      Partner with us:
+                    </h4>
+                    <p className="text-muted-foreground text-sm" data-testid="text-partner-description">
+                      Governments and NGOs can deploy our solutions in vulnerable communities
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-invest-title">
+                      <span className="w-3 h-3 bg-primary rounded-full" />
+                      Invest in impact:
+                    </h4>
+                    <p className="text-muted-foreground text-sm" data-testid="text-invest-description">
+                      Support scalable climate adaptation technology
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-research-title">
+                      <span className="w-3 h-3 bg-primary rounded-full" />
+                      Research collaboration:
+                    </h4>
+                    <p className="text-muted-foreground text-sm" data-testid="text-research-description">
+                      Academic institutions can help us innovate further
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-spread-title">
+                      <span className="w-3 h-3 bg-primary rounded-full" />
+                      Spread the word:
+                    </h4>
+                    <p className="text-muted-foreground text-sm" data-testid="text-spread-description">
+                      Help us reach more communities in need
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-muted/30 rounded-md p-8">
+                <h3 className="text-2xl font-bold text-foreground mb-6" data-testid="text-contact-info-title">
+                  Contact Information
+                </h3>
+                <div className="space-y-6">
+                  <div className="flex gap-4" data-testid="contact-email">
+                    <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-bold text-foreground">Email</p>
+                      <a href="mailto:contact@marinerefuge.org" className="text-primary hover:underline" data-testid="link-email">
+                        contact@marinerefuge.org
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex gap-4" data-testid="contact-phone">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-bold text-foreground">Phone</p>
+                      <a href="tel:+1234567890" className="text-primary hover:underline" data-testid="link-phone">
+                        +1 (234) 567-890
+                      </a>
+                    </div>
+                  </div>
+                  <div className="flex gap-4" data-testid="contact-office">
+                    <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-bold text-foreground">Office</p>
+                      <p className="text-muted-foreground" data-testid="text-office-address">
+                        123 Climate Innovation Drive<br />
+                        Islamabad, Pakistan
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
