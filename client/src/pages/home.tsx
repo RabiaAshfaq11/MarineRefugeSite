@@ -486,7 +486,7 @@ export default function Home() {
       {/* SDG Section */}
       <section className="py-20 md:py-32 bg-accent/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-sdg-title">
               Aligned with UN Sustainable Development Goals
             </h2>
@@ -495,36 +495,84 @@ export default function Home() {
               targets
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-12 max-w-4xl mx-auto">
-            <div className="text-center" data-testid="sdg-9">
-              <img
-                src={sdg9}
-                alt="SDG 9 - Industry, Innovation and Infrastructure"
-                className="w-full max-w-[200px] mx-auto mb-4"
-              />
-              <p className="text-sm font-medium text-foreground" data-testid="text-sdg-9-label">
-                Industry, Innovation and Infrastructure
-              </p>
-            </div>
-            <div className="text-center" data-testid="sdg-11">
-              <img
-                src={sdg11}
-                alt="SDG 11 - Sustainable Cities and Communities"
-                className="w-full max-w-[200px] mx-auto mb-4"
-              />
-              <p className="text-sm font-medium text-foreground" data-testid="text-sdg-11-label">
-                Sustainable Cities and Communities
-              </p>
-            </div>
-            <div className="text-center" data-testid="sdg-13">
-              <img
-                src={sdg13}
-                alt="SDG 13 - Climate Action"
-                className="w-full max-w-[200px] mx-auto mb-4"
-              />
-              <p className="text-sm font-medium text-foreground" data-testid="text-sdg-13-label">
-                Climate Action
-              </p>
+          <div className="relative w-full">
+            {/* Gradient fade on left */}
+            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-accent/10 to-transparent z-10 pointer-events-none" />
+            {/* Gradient fade on right */}
+            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-accent/10 to-transparent z-10 pointer-events-none" />
+            
+            {/* Scrolling container */}
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll gap-12 justify-center items-center py-4">
+                <div className="flex gap-12 items-center min-w-max">
+                  {/* SDG 9 */}
+                  <div className="text-center flex-shrink-0" data-testid="sdg-9">
+                    <img
+                      src={sdg9}
+                      alt="SDG 9 - Industry, Innovation and Infrastructure"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap" data-testid="text-sdg-9-label">
+                      Industry, Innovation & Infrastructure
+                    </p>
+                  </div>
+                  {/* SDG 11 */}
+                  <div className="text-center flex-shrink-0" data-testid="sdg-11">
+                    <img
+                      src={sdg11}
+                      alt="SDG 11 - Sustainable Cities and Communities"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap" data-testid="text-sdg-11-label">
+                      Sustainable Cities & Communities
+                    </p>
+                  </div>
+                  {/* SDG 13 */}
+                  <div className="text-center flex-shrink-0" data-testid="sdg-13">
+                    <img
+                      src={sdg13}
+                      alt="SDG 13 - Climate Action"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap" data-testid="text-sdg-13-label">
+                      Climate Action
+                    </p>
+                  </div>
+                </div>
+                {/* Repeat for seamless scrolling */}
+                <div className="flex gap-12 items-center min-w-max">
+                  <div className="text-center flex-shrink-0">
+                    <img
+                      src={sdg9}
+                      alt="SDG 9 - Industry, Innovation and Infrastructure"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap">
+                      Industry, Innovation & Infrastructure
+                    </p>
+                  </div>
+                  <div className="text-center flex-shrink-0">
+                    <img
+                      src={sdg11}
+                      alt="SDG 11 - Sustainable Cities and Communities"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap">
+                      Sustainable Cities & Communities
+                    </p>
+                  </div>
+                  <div className="text-center flex-shrink-0">
+                    <img
+                      src={sdg13}
+                      alt="SDG 13 - Climate Action"
+                      className="w-full max-w-[170px] mx-auto mb-3"
+                    />
+                    <p className="text-sm font-medium text-foreground whitespace-nowrap">
+                      Climate Action
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
