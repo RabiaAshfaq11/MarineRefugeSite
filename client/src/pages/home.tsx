@@ -449,20 +449,33 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center w-full h-screen flex flex-col justify-between">
-          <div className="absolute bottom-8 left-8 p-6">
-            <div className="flex items-center gap-2 mb-3" data-testid="hero-brand">
-              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
-              <h1 className="text-xl font-bold text-white" data-testid="text-hero-title">
-                Marine Refuge
-              </h1>
-            </div>
-            <p className="text-sm text-white/90 max-w-xs" data-testid="text-hero-subtitle">
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 w-full h-screen flex flex-col justify-between">
+          <div className="absolute bottom-8 left-[73px] p-6 text-left">
+            <h1
+              style={{
+                fontSize: "64px",
+                fontWeight: 500,
+                color: "white",
+              }}
+              data-testid="text-hero-title"
+            >
+              Marine Refuge
+            </h1>
+            <p
+              style={{
+                fontSize: "14px",
+                color: "rgba(255,255,255,0.9)",
+                marginTop: "8px",
+              }}
+              data-testid="text-hero-subtitle"
+            >
               Homes that stand by you
             </p>
           </div>
         </div>
       </section>
+
 
       {/* About Us Section */}
       <section id="about" className="py-20 md:py-32">
@@ -626,14 +639,14 @@ export default function Home() {
           </div>
           <div className="relative mx-auto" style={{ maxWidth: "800px" }}>
             {/* Gradient fade on left */}
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-accent/10 to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-accent/10 via-accent/5 to-transparent z-10 pointer-events-none" />
             {/* Gradient fade on right */}
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-accent/10 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-accent/10 via-accent/5 to-transparent z-10 pointer-events-none" />
             
             {/* Scrolling container */}
             <div className="overflow-hidden">
-              <div className="flex animate-scroll justify-center items-center py-4" style={{ gap: "43.2px" }}>
-                <div className="flex items-center min-w-max" style={{ gap: "43.2px" }}>
+              <div className="flex animate-scroll items-center py-4" style={{ gap: "48px" }}>
+                <div className="flex items-center min-w-max" style={{ gap: "48px" }}>
                   {/* SDG 9 */}
                   <div className="text-center flex-shrink-0" data-testid="sdg-9">
                     <img
@@ -669,7 +682,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Repeat for seamless scrolling */}
-                <div className="flex items-center min-w-max" style={{ gap: "43.2px" }}>
+                <div className="flex items-center min-w-max" style={{ gap: "48px" }}>
                   <div className="text-center flex-shrink-0">
                     <img
                       src={sdg9}
