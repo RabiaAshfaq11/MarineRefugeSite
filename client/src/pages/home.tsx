@@ -618,7 +618,7 @@ export default function Home() {
               targets
             </p>
           </div>
-          <div className="relative w-full">
+          <div className="relative mx-auto" style={{ maxWidth: "800px" }}>
             {/* Gradient fade on left */}
             <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-accent/10 to-transparent z-10 pointer-events-none" />
             {/* Gradient fade on right */}
@@ -626,8 +626,8 @@ export default function Home() {
             
             {/* Scrolling container */}
             <div className="overflow-hidden">
-              <div className="flex animate-scroll gap-12 justify-center items-center py-4">
-                <div className="flex gap-12 items-center min-w-max">
+              <div className="flex animate-scroll justify-center items-center py-4" style={{ gap: "43.2px" }}>
+                <div className="flex items-center min-w-max" style={{ gap: "43.2px" }}>
                   {/* SDG 9 */}
                   <div className="text-center flex-shrink-0" data-testid="sdg-9">
                     <img
@@ -663,7 +663,7 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Repeat for seamless scrolling */}
-                <div className="flex gap-12 items-center min-w-max">
+                <div className="flex items-center min-w-max" style={{ gap: "43.2px" }}>
                   <div className="text-center flex-shrink-0">
                     <img
                       src={sdg9}
