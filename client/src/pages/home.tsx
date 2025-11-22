@@ -391,7 +391,7 @@ export default function Home() {
             <h3 className="text-2xl md:text-3xl font-bold text-foreground whitespace-nowrap flex-shrink-0" data-testid="text-affiliated-title">
               Affiliated with
             </h3>
-            <div className="flex-1 overflow-hidden">
+            <div className="flex-1 overflow-hidden carousel-fade">
               <div className="flex animate-scroll gap-8 items-center">
                 <div className="flex gap-8 items-center min-w-max">
                   <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">

@@ -206,11 +206,16 @@
   }
 
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll 33s linear infinite;
   }
 
   .animate-scroll:hover {
     animation-play-state: paused;
+  }
+
+  .carousel-fade {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
 
   /* Hide ugly search cancel button in Chrome until we can style it properly */
