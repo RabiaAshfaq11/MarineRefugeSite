@@ -373,61 +373,61 @@ export default function Home() {
       </section>
 
       {/* What We Do Section */}
-      <section id="what-we-do" className="py-20 md:py-32 bg-accent/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-what-we-do-label">
+      <section id="what-we-do" className="py-20 md:py-32 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20">
+            <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-3" data-testid="text-what-we-do-label">
               What We Do
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground" data-testid="text-what-we-do-title">
+            <h2 className="text-5xl md:text-6xl font-bold text-foreground" data-testid="text-what-we-do-title">
               Our Key Activities
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-md" data-testid="card-activity-1">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
-                <Building2 className="w-6 h-6 text-primary" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-white p-10 rounded-md" data-testid="card-activity-1">
+              <div className="mb-8">
+                <Building2 className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-1-title">
+              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-1-title">
                 Amphibious Housing Design
               </h3>
-              <p className="text-primary leading-relaxed" data-testid="text-activity-1-description">
+              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-1-description">
                 We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-md" data-testid="card-activity-2">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
-                <Users className="w-6 h-6 text-primary" />
+            <div className="bg-white p-10 rounded-md" data-testid="card-activity-2">
+              <div className="mb-8">
+                <Users className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-2-title">
+              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-2-title">
                 Community Engagement
               </h3>
-              <p className="text-primary leading-relaxed" data-testid="text-activity-2-description">
+              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-2-description">
                 We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-md" data-testid="card-activity-3">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
-                <Shield className="w-6 h-6 text-primary" />
+            <div className="bg-white p-10 rounded-md" data-testid="card-activity-3">
+              <div className="mb-8">
+                <Shield className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-3-title">
+              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-3-title">
                 Climate Adaptation Research
               </h3>
-              <p className="text-primary leading-relaxed" data-testid="text-activity-3-description">
+              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-3-description">
                 Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-md" data-testid="card-activity-4">
-              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
-                <Waves className="w-6 h-6 text-primary" />
+            <div className="bg-white p-10 rounded-md" data-testid="card-activity-4">
+              <div className="mb-8">
+                <Waves className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-4-title">
+              <h3 className="text-xl font-bold text-foreground mb-4" data-testid="text-activity-4-title">
                 Sustainable Design
               </h3>
-              <p className="text-primary leading-relaxed" data-testid="text-activity-4-description">
+              <p className="text-primary leading-relaxed text-sm" data-testid="text-activity-4-description">
                 Build with eco-friendly materials and designed to minimize environmental impact.
               </p>
             </div>
