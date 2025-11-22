@@ -549,10 +549,10 @@ export default function Home() {
                 <img
                   src={maryamPhoto}
                   alt="Maryam Iftikhar"
-                  className="w-64 h-64 object-cover rounded-lg transition-all duration-300"
-                  style={{ cursor: "pointer" }}
+                  className="w-64 h-64 object-cover transition-all duration-300"
+                  style={{ borderRadius: "35px", cursor: "pointer" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 0 30px 0 rgb(7, 235, 225)";
+                    e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow = "none";
@@ -580,10 +580,10 @@ export default function Home() {
                 <img
                   src={ayaanPhoto}
                   alt="Ayaan Ahmed Sheikh"
-                  className="w-64 h-64 object-cover rounded-lg transition-all duration-300"
-                  style={{ cursor: "pointer" }}
+                  className="w-64 h-64 object-cover transition-all duration-300"
+                  style={{ borderRadius: "35px", cursor: "pointer" }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 0 30px 0 rgb(7, 235, 225)";
+                    e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.boxShadow = "none";
