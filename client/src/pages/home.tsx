@@ -793,17 +793,8 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-foreground text-background py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-8">
-            <div>
-              <div className="flex items-center gap-2 mb-2" data-testid="footer-brand">
-                <img src={logoGreen} alt="Marine Refuge" className="w-6 h-6 brightness-200" />
-                <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
-              </div>
-              <p className="text-sm text-background/70" data-testid="text-footer-tagline">
-                Building climate-resilient communities through innovative amphibious housing
-              </p>
-            </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col justify-between">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-8">
             <div className="flex items-center gap-4">
               <a 
                 href="https://www.linkedin.com/company/marinerefuge/"
@@ -817,9 +808,18 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="border-t border-background/20 pt-6">
-            <p className="text-sm text-background/70 text-center md:text-left" data-testid="text-footer-copyright">
+          <div className="border-t border-background/20 pt-6 mb-8">
+            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
+            </p>
+          </div>
+          <div className="pt-12 pl-0">
+            <div className="flex items-center gap-2 mb-3" data-testid="footer-brand">
+              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
+              <span className="text-xl font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+            </div>
+            <p className="text-sm text-background/70 max-w-xs" data-testid="text-footer-tagline">
+              Building climate-resilient communities through innovative amphibious housing
             </p>
           </div>
         </div>
