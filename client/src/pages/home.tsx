@@ -320,15 +320,15 @@ export default function Home() {
         >
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center w-full h-screen flex flex-col justify-between">
           <div className="absolute bottom-8 left-8 p-6">
-            
-          </div>
-          <div className="absolute bottom-8 right-8 p-6 text-right">
-            <h1 className="text-4xl font-bold text-white" data-testid="text-hero-title">
-              Marine Refuge
-            </h1>
-            <p className="text-xl text-white/90" data-testid="text-hero-subtitle">
+            <div className="flex items-center gap-2 mb-3" data-testid="hero-brand">
+              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
+              <h1 className="text-xl font-bold text-white" data-testid="text-hero-title">
+                Marine Refuge
+              </h1>
+            </div>
+            <p className="text-sm text-white/90 max-w-xs" data-testid="text-hero-subtitle">
               Homes that stand by you
             </p>
           </div>
