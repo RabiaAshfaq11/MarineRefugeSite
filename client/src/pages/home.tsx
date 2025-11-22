@@ -748,7 +748,7 @@ export default function Home() {
       </section>
 
       {/* The Technology Behind It Section */}
-      <section className="py-20 md:py-32 bg-accent/10">
+      <section className="py-10 md:py-16 bg-accent/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center">
             <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-technology-label">
