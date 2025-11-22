@@ -21,6 +21,8 @@ import hultAward from "@assets/image_1763804171413.png";
 import sdg9 from "@assets/sdg9-en_1763798707207.png";
 import sdg11 from "@assets/E-Goal-11-1024x1024_1763798715992.png";
 import sdg13 from "@assets/sdg13_1763798707208.png";
+import maryamPhoto from "@assets/image_1763810244469.png";
+import ayaanPhoto from "@assets/image_1763810279447.png";
 import { useState, useEffect } from "react";
 
 const contactSchema = z.object({
@@ -378,6 +380,70 @@ export default function Home() {
               />
               <p className="text-sm font-medium text-foreground" data-testid="text-sdg-13-label">
                 Climate Action
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Team Section */}
+      <section className="py-20 md:py-32 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4" data-testid="text-team-label">
+              The Team
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground" data-testid="text-team-title">
+              5 Years of Combined<br />Relevant Experience
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            {/* Maryam */}
+            <div className="text-center" data-testid="team-member-maryam">
+              <div className="mb-6 flex justify-center">
+                <img
+                  src={maryamPhoto}
+                  alt="Maryam Iftikhar"
+                  className="w-64 h-64 object-cover rounded-lg"
+                  data-testid="img-maryam"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-maryam-name">
+                Maryam Iftikhar
+              </h3>
+              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-maryam-position">
+                Founder & CEO
+              </p>
+              <p className="text-muted-foreground mb-2" data-testid="text-maryam-degree">
+                MS Innovation & Entrepreneurship
+              </p>
+              <p className="text-sm text-muted-foreground font-medium" data-testid="text-maryam-focus">
+                Management, Networking & Outreach
+              </p>
+            </div>
+
+            {/* Ayaan */}
+            <div className="text-center" data-testid="team-member-ayaan">
+              <div className="mb-6 flex justify-center">
+                <img
+                  src={ayaanPhoto}
+                  alt="Ayaan Ahmed Sheikh"
+                  className="w-64 h-64 object-cover rounded-lg"
+                  data-testid="img-ayaan"
+                />
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-ayaan-name">
+                Ayaan Ahmed Sheikh
+              </h3>
+              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-ayaan-position">
+                Cofounder & CTO
+              </p>
+              <p className="text-muted-foreground mb-2" data-testid="text-ayaan-degree">
+                BS Civil Engineering
+              </p>
+              <p className="text-sm text-muted-foreground font-medium" data-testid="text-ayaan-focus">
+                Development & Testing
               </p>
             </div>
           </div>
