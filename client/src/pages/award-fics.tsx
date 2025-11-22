@@ -1,7 +1,9 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Waves, ArrowLeft, ExternalLink, Trophy } from "lucide-react";
-import ficsAward from "@assets/generated_images/fics_24_award_ceremony.png";
+import ficsAward from "@assets/image_1763804088995.png";
+import ficsDetail1 from "@assets/image_1763804107507.png";
+import ficsCertificate from "@assets/image_1763804115236.png";
 
 export default function AwardFics() {
   return (
@@ -77,7 +79,21 @@ export default function AwardFics() {
             </p>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-12 space-y-8">
+            <div className="grid md:grid-cols-2 gap-8">
+              <img
+                src={ficsDetail1}
+                alt="FICS'24 Event - Team presenting"
+                className="w-full h-auto shadow-lg"
+                data-testid="img-fics-detail-1"
+              />
+              <img
+                src={ficsCertificate}
+                alt="FICS'24 Certificate of Appreciation"
+                className="w-full h-auto shadow-lg"
+                data-testid="img-fics-certificate"
+              />
+            </div>
             <a
               href="https://www.linkedin.com/feed/update/urn:li:activity:7256053842058878976"
               target="_blank"
@@ -117,12 +133,19 @@ export default function AwardFics() {
       {/* Footer */}
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2" data-testid="footer-brand">
-              <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2" data-testid="footer-brand">
+                <Waves className="w-6 h-6" />
+                <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+              </div>
+              <p className="text-sm text-background/70" data-testid="text-footer-tagline">
+                Building climate-resilient communities through innovative amphibious housing
+              </p>
             </div>
-            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
+          </div>
+          <div className="border-t border-background/20 pt-6">
+            <p className="text-sm text-background/70 text-center md:text-left" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
             </p>
           </div>

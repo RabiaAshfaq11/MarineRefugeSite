@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Waves, ArrowLeft, ExternalLink, Trophy } from "lucide-react";
-import hultAward from "@assets/generated_images/hult_prize_runner_up.png";
+import hultAward from "@assets/image_1763804171413.png";
 
 export default function AwardHult() {
   return (
@@ -117,12 +117,19 @@ export default function AwardHult() {
       {/* Footer */}
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2" data-testid="footer-brand">
-              <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2" data-testid="footer-brand">
+                <Waves className="w-6 h-6" />
+                <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+              </div>
+              <p className="text-sm text-background/70" data-testid="text-footer-tagline">
+                Building climate-resilient communities through innovative amphibious housing
+              </p>
             </div>
-            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
+          </div>
+          <div className="border-t border-background/20 pt-6">
+            <p className="text-sm text-background/70 text-center md:text-left" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
             </p>
           </div>

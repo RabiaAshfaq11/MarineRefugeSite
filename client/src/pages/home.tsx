@@ -1,11 +1,14 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, Waves, Building2, Users, Shield } from "lucide-react";
-import heroImage from "@assets/generated_images/coastal_amphibious_housing_hero.png";
-import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
-import ficsAward from "@assets/generated_images/fics_24_award_ceremony.png";
-import hultAward from "@assets/generated_images/hult_prize_runner_up.png";
+import { ChevronRight, Waves, Building2, Users, Shield, Linkedin } from "lucide-react";
+import heroImage from "@assets/pexels-andriall-11918086_1763801753953.jpg";
+import logoGreen from "@assets/Asset 1_1763803151514.png";
+import companyLogos from "@assets/image_1763803697702.png";
+import ficsAward from "@assets/image_1763804088995.png";
+import ficsDetail1 from "@assets/image_1763804107507.png";
+import ficsCertificate from "@assets/image_1763804115236.png";
+import hultAward from "@assets/image_1763804171413.png";
 import sdg9 from "@assets/sdg9-en_1763798707207.png";
 import sdg11 from "@assets/E-Goal-11-1024x1024_1763798715992.png";
 import sdg13 from "@assets/sdg13_1763798707208.png";
@@ -42,39 +45,51 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
-              <Waves className="w-8 h-8 text-primary" />
-              <span className="text-xl font-bold text-foreground" data-testid="text-brand-name">
+              <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8" />
+              <span className={`text-xl font-bold transition-colors duration-300 ${
+                scrolled ? "text-primary" : "text-white"
+              }`} data-testid="text-brand-name">
                 Marine Refuge
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => scrollToSection("home")}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+                }`}
                 data-testid="nav-home"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+                }`}
                 data-testid="nav-about"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection("what-we-do")}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+                }`}
                 data-testid="nav-what-we-do"
               >
                 What We Do
               </button>
-              <Link href="/learn-more" className="text-foreground hover:text-primary transition-colors font-medium" data-testid="nav-learn-more">
+              <Link href="/learn-more" className={`transition-colors font-medium ${
+                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+              }`} data-testid="nav-learn-more">
                 Learn More
               </Link>
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+                }`}
                 data-testid="nav-contact"
               >
                 Contact
@@ -142,7 +157,7 @@ export default function Home() {
             </div>
             <div className="relative">
               <img
-                src={aboutImage}
+                src={heroImage}
                 alt="Modern amphibious house on water"
                 className="w-full h-auto shadow-2xl"
                 data-testid="img-about"
@@ -264,35 +279,11 @@ export default function Home() {
           </h3>
           <div className="overflow-hidden relative">
             <div className="flex animate-scroll gap-16 items-center">
-              {/* Placeholder for affiliated company logos - to be added when provided */}
               <div className="flex gap-16 items-center min-w-max">
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 1
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 2
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 3
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 4
-                </div>
+                <img src={companyLogos} alt="Partner logos" className="h-16 object-contain" />
               </div>
-              {/* Duplicate for seamless loop */}
               <div className="flex gap-16 items-center min-w-max">
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 1
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 2
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 3
-                </div>
-                <div className="w-32 h-16 bg-muted flex items-center justify-center text-muted-foreground text-sm">
-                  Partner 4
-                </div>
+                <img src={companyLogos} alt="Partner logos" className="h-16 object-contain" />
               </div>
             </div>
           </div>
@@ -363,12 +354,31 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2" data-testid="footer-brand">
-              <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2" data-testid="footer-brand">
+                <img src={logoGreen} alt="Marine Refuge" className="w-6 h-6 brightness-200" />
+                <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+              </div>
+              <p className="text-sm text-background/70" data-testid="text-footer-tagline">
+                Building climate-resilient communities through innovative amphibious housing
+              </p>
             </div>
-            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/company/marinerefuge/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-background hover:text-accent transition-colors"
+                data-testid="link-linkedin"
+                aria-label="Marine Refuge LinkedIn"
+              >
+                <Linkedin className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+          <div className="border-t border-background/20 pt-6">
+            <p className="text-sm text-background/70 text-center md:text-left" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
             </p>
           </div>
