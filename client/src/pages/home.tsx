@@ -224,6 +224,129 @@ function ScrollTransitionSection() {
   );
 }
 
+function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPhoto: string }) {
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const maryamTextRef = useRef<HTMLDivElement>(null);
+  const ayaanTextRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-up", "fade-in-left");
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+
+    if (titleRef.current) observer.observe(titleRef.current);
+    if (subtitleRef.current) observer.observe(subtitleRef.current);
+    if (maryamTextRef.current) observer.observe(maryamTextRef.current);
+    if (ayaanTextRef.current) observer.observe(ayaanTextRef.current);
+
+    return () => {
+      if (titleRef.current) observer.unobserve(titleRef.current);
+      if (subtitleRef.current) observer.unobserve(subtitleRef.current);
+      if (maryamTextRef.current) observer.unobserve(maryamTextRef.current);
+      if (ayaanTextRef.current) observer.unobserve(ayaanTextRef.current);
+    };
+  }, []);
+
+  return (
+    <section className="py-20 md:py-32 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center mb-16">
+          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4" data-testid="text-team-label">
+            The Team
+          </p>
+          <h2 ref={titleRef} className="text-4xl md:text-5xl font-bold text-foreground opacity-0" data-testid="text-team-title">
+            5 Years of Combined<br />Relevant Experience
+          </h2>
+          <p ref={subtitleRef} className="text-lg text-muted-foreground mt-4 opacity-0" data-testid="text-team-subtitle">
+            Meet our founders
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+          {/* Maryam */}
+          <div className="text-center" data-testid="team-member-maryam">
+            <div className="mb-6 flex justify-center">
+              <img
+                src={maryamPhoto}
+                alt="Maryam Iftikhar"
+                className="w-64 h-64 object-cover transition-all duration-300"
+                style={{ borderRadius: "35px", cursor: "pointer" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+                data-testid="img-maryam"
+              />
+            </div>
+            <div ref={maryamTextRef} className="opacity-0">
+              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-maryam-name">
+                Maryam Iftikhar
+              </h3>
+              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-maryam-position">
+                Founder & CEO
+              </p>
+              <p className="text-muted-foreground mb-2" data-testid="text-maryam-degree">
+                MS Innovation & Entrepreneurship
+              </p>
+              <p className="text-sm text-muted-foreground font-medium" data-testid="text-maryam-focus">
+                Management, Networking & Outreach
+              </p>
+            </div>
+          </div>
+
+          {/* Ayaan */}
+          <div className="text-center" data-testid="team-member-ayaan">
+            <div className="mb-6 flex justify-center">
+              <img
+                src={ayaanPhoto}
+                alt="Ayaan Ahmed Sheikh"
+                className="w-64 h-64 object-cover transition-all duration-300"
+                style={{ borderRadius: "35px", cursor: "pointer" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+                data-testid="img-ayaan"
+              />
+            </div>
+            <div ref={ayaanTextRef} className="opacity-0">
+              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-ayaan-name">
+                Ayaan Ahmed Sheikh
+              </h3>
+              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-ayaan-position">
+                Cofounder & CTO
+              </p>
+              <p className="text-muted-foreground mb-2" data-testid="text-ayaan-degree">
+                BS Civil Engineering
+              </p>
+              <p className="text-sm text-muted-foreground font-medium" data-testid="text-ayaan-focus">
+                Development & Testing
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -579,82 +702,7 @@ export default function Home() {
       </section>
 
       {/* The Team Section */}
-      <section className="py-20 md:py-32 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wide mb-4" data-testid="text-team-label">
-              The Team
-            </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground" data-testid="text-team-title">
-              5 Years of Combined<br />Relevant Experience
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            {/* Maryam */}
-            <div className="text-center" data-testid="team-member-maryam">
-              <div className="mb-6 flex justify-center">
-                <img
-                  src={maryamPhoto}
-                  alt="Maryam Iftikhar"
-                  className="w-64 h-64 object-cover transition-all duration-300"
-                  style={{ borderRadius: "35px", cursor: "pointer" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                  data-testid="img-maryam"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-maryam-name">
-                Maryam Iftikhar
-              </h3>
-              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-maryam-position">
-                Founder & CEO
-              </p>
-              <p className="text-muted-foreground mb-2" data-testid="text-maryam-degree">
-                MS Innovation & Entrepreneurship
-              </p>
-              <p className="text-sm text-muted-foreground font-medium" data-testid="text-maryam-focus">
-                Management, Networking & Outreach
-              </p>
-            </div>
-
-            {/* Ayaan */}
-            <div className="text-center" data-testid="team-member-ayaan">
-              <div className="mb-6 flex justify-center">
-                <img
-                  src={ayaanPhoto}
-                  alt="Ayaan Ahmed Sheikh"
-                  className="w-64 h-64 object-cover transition-all duration-300"
-                  style={{ borderRadius: "35px", cursor: "pointer" }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = "0 0 22.5px 0 rgb(5, 180, 180)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                  data-testid="img-ayaan"
-                />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-2" data-testid="text-ayaan-name">
-                Ayaan Ahmed Sheikh
-              </h3>
-              <p className="text-lg font-semibold text-primary mb-4" data-testid="text-ayaan-position">
-                Cofounder & CTO
-              </p>
-              <p className="text-muted-foreground mb-2" data-testid="text-ayaan-degree">
-                BS Civil Engineering
-              </p>
-              <p className="text-sm text-muted-foreground font-medium" data-testid="text-ayaan-focus">
-                Development & Testing
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TeamSection maryamPhoto={maryamPhoto} ayaanPhoto={ayaanPhoto} />
 
       {/* Affiliated Companies Slider */}
       <section className="py-20 md:py-32">
