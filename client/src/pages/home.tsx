@@ -373,248 +373,106 @@ export default function Home() {
       </section>
 
       {/* What We Do Section */}
-      <section
-        id="what-we-do"
-        style={{
-          backgroundColor: "#5B62AE",
-          position: "relative",
-          width: "100%",
-          minHeight: "854px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            backgroundColor: "#23454C",
-            width: "100%",
-            position: "relative",
-            paddingTop: "60px",
-            paddingBottom: "60px",
-          }}
-        >
-          <div style={{ maxWidth: "1440px", margin: "0 auto", paddingLeft: "40px", paddingRight: "40px" }}>
-            {/* What we do label */}
-            <div style={{ textAlign: "center", marginBottom: "20px" }}>
-              <p
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "24px",
-                  fontWeight: 400,
-                  lineHeight: "29px",
-                  color: "#07EBE1",
-                  margin: 0,
-                  letterSpacing: "0.5px",
-                }}
-                data-testid="text-what-we-do-label"
-              >
-                What we do
-              </p>
-            </div>
-
-            {/* Our Key Activities Title */}
-            <div style={{ textAlign: "center", marginBottom: "60px" }}>
-              <h2
-                style={{
-                  fontFamily: "Inter",
-                  fontSize: "40px",
-                  fontWeight: 600,
-                  lineHeight: "48px",
-                  color: "#07EBE1",
-                  margin: 0,
-                }}
-                data-testid="text-what-we-do-title"
-              >
-                Our Key Activities
-              </h2>
-            </div>
-
-            {/* Grid of 4 cards - 2x2 */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "30px",
-                maxWidth: "1000px",
-                margin: "0 auto",
-              }}
+      <section id="what-we-do" className="py-20 md:py-32 bg-[#23454C]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20">
+            <p
+              className="text-sm font-semibold uppercase tracking-wider mb-3"
+              style={{ color: "#07EBE1" }}
             >
-              {/* Card 1 - Amphibious Housing Design */}
+              What We Do
+            </p>
+            <h2
+              className="text-5xl md:text-6xl font-bold"
+              style={{ color: "white" }}
+            >
+              Our Key Activities
+            </h2>
+          </div>
+
+          {/* Grid Layout */}
+          <div className="grid grid-cols-5 gap-6 items-center">
+            {/* Left Column */}
+            <div className="flex flex-col gap-6 col-span-2">
+              {/* Card 1 */}
               <div
+                className="p-10 border-b-2"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: "40px",
-                  position: "relative",
-                  minHeight: "253px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  borderColor: "#07EBE1",
+                  borderRadius: "0px",
                 }}
-                data-testid="card-activity-1"
               >
-                <h3
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "24px",
-                    fontWeight: 600,
-                    lineHeight: "29px",
-                    color: "#07EBE1",
-                    marginTop: 0,
-                    marginBottom: "30px",
-                    marginLeft: 0,
-                    marginRight: 0,
-                  }}
-                  data-testid="text-activity-1-title"
-                >
+                <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
                   Amphibious Housing Design
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "27px",
-                    color: "#FFFFFF",
-                    margin: 0,
-                  }}
-                  data-testid="text-activity-1-description"
-                >
+                <p className="text-sm leading-relaxed" style={{ color: "white" }}>
                   We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage.
                 </p>
               </div>
 
-              {/* Card 2 - Community Engagement */}
+              {/* Card 2 */}
               <div
+                className="p-10 border-b-2"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: "40px",
-                  position: "relative",
-                  minHeight: "253px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  borderColor: "#07EBE1",
+                  borderRadius: "0px",
                 }}
-                data-testid="card-activity-2"
               >
-                <h3
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "24px",
-                    fontWeight: 600,
-                    lineHeight: "29px",
-                    color: "#07EBE1",
-                    marginTop: 0,
-                    marginBottom: "30px",
-                    marginLeft: 0,
-                    marginRight: 0,
-                  }}
-                  data-testid="text-activity-2-title"
-                >
+                <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
                   Community Engagement
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "27px",
-                    color: "#FFFFFF",
-                    margin: 0,
-                  }}
-                  data-testid="text-activity-2-description"
-                >
+                <p className="text-sm leading-relaxed" style={{ color: "white" }}>
                   We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life.
                 </p>
               </div>
+            </div>
 
-              {/* Card 3 - Climate Adaptation Research */}
-              <div
+            {/* Center Logo */}
+            <div className="flex justify-center items-center col-span-1">
+              <img
+                src="/logo.png"
+                alt="Marine Refuge Logo"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: "40px",
-                  position: "relative",
-                  minHeight: "265px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  borderTop: "2px solid #07EBE1",
-                  borderBottom: "2px solid #07EBE1",
+                  maxWidth: "100%",
+                  opacity: 0.1,
                 }}
-                data-testid="card-activity-3"
+              />
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-6 col-span-2">
+              {/* Card 3 */}
+              <div
+                className="p-10 border-b-2"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  borderColor: "#07EBE1",
+                  borderRadius: "0px",
+                }}
               >
-                <h3
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "24px",
-                    fontWeight: 600,
-                    lineHeight: "29px",
-                    color: "#07EBE1",
-                    marginTop: 0,
-                    marginBottom: "30px",
-                    marginLeft: 0,
-                    marginRight: 0,
-                  }}
-                  data-testid="text-activity-3-title"
-                >
+                <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
                   Climate Adaptation Research
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "27px",
-                    color: "#FFFFFF",
-                    margin: 0,
-                  }}
-                  data-testid="text-activity-3-description"
-                >
+                <p className="text-sm leading-relaxed" style={{ color: "white" }}>
                   Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning.
                 </p>
               </div>
 
-              {/* Card 4 - Sustainable Design */}
+              {/* Card 4 */}
               <div
+                className="p-10 border-b-2"
                 style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  padding: "40px",
-                  position: "relative",
-                  minHeight: "265px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  borderBottom: "2px solid #07EBE1",
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                  borderColor: "#07EBE1",
+                  borderRadius: "0px",
                 }}
-                data-testid="card-activity-4"
               >
-                <h3
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "24px",
-                    fontWeight: 600,
-                    lineHeight: "29px",
-                    color: "#07EBE1",
-                    marginTop: 0,
-                    marginBottom: "30px",
-                    marginLeft: 0,
-                    marginRight: 0,
-                  }}
-                  data-testid="text-activity-4-title"
-                >
+                <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
                   Sustainable Design
                 </h3>
-                <p
-                  style={{
-                    fontFamily: "Inter",
-                    fontSize: "22px",
-                    fontWeight: 500,
-                    lineHeight: "27px",
-                    color: "#FFFFFF",
-                    margin: 0,
-                  }}
-                  data-testid="text-activity-4-description"
-                >
+                <p className="text-sm leading-relaxed" style={{ color: "white" }}>
                   Build with eco-friendly materials and designed to minimize environmental impact.
                 </p>
               </div>
@@ -622,6 +480,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
 
 
       {/* SDG Section */}
@@ -690,7 +549,14 @@ export default function Home() {
                 <img
                   src={maryamPhoto}
                   alt="Maryam Iftikhar"
-                  className="w-64 h-64 object-cover rounded-lg"
+                  className="w-64 h-64 object-cover rounded-lg transition-all duration-300"
+                  style={{ cursor: "pointer" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 0 30px 0 rgb(7, 235, 225)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
                   data-testid="img-maryam"
                 />
               </div>
@@ -714,7 +580,14 @@ export default function Home() {
                 <img
                   src={ayaanPhoto}
                   alt="Ayaan Ahmed Sheikh"
-                  className="w-64 h-64 object-cover rounded-lg"
+                  className="w-64 h-64 object-cover rounded-lg transition-all duration-300"
+                  style={{ cursor: "pointer" }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = "0 0 30px 0 rgb(7, 235, 225)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
                   data-testid="img-ayaan"
                 />
               </div>
