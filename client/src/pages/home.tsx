@@ -4,7 +4,10 @@ import { Card } from "@/components/ui/card";
 import { ChevronRight, Waves, Building2, Users, Shield, Linkedin } from "lucide-react";
 import heroImage from "@assets/pexels-andriall-11918086_1763801753953.jpg";
 import logoGreen from "@assets/Asset 1_1763803151514.png";
-import companyLogos from "@assets/image_1763803697702.png";
+import logo1 from "@assets/image_1763805395713.png";
+import logo2 from "@assets/image_1763805402347.png";
+import logo3 from "@assets/image_1763805408141.png";
+import logo4 from "@assets/image_1763805414223.png";
 import ficsAward from "@assets/image_1763804088995.png";
 import ficsDetail1 from "@assets/image_1763804107507.png";
 import ficsCertificate from "@assets/image_1763804115236.png";
@@ -271,37 +274,39 @@ export default function Home() {
       {/* Affiliated Companies Slider */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h3 className="text-3xl font-bold text-foreground text-center mb-12" data-testid="text-affiliated-title">
-            Affiliated With
-          </h3>
-          <div className="overflow-hidden relative">
-            <div className="flex animate-scroll gap-16 items-center">
-              <div className="flex gap-16 items-center min-w-max">
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
-                  <img src={companyLogos} alt="Partner 1" className="h-12 object-contain" />
+          <div className="flex items-center gap-8 md:gap-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground whitespace-nowrap flex-shrink-0" data-testid="text-affiliated-title">
+              Affiliated with
+            </h3>
+            <div className="flex-1 overflow-hidden">
+              <div className="flex animate-scroll gap-8 items-center">
+                <div className="flex gap-8 items-center min-w-max">
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
+                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
+                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
+                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
+                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
+                  </div>
                 </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
-                  <img src={companyLogos} alt="Partner 2" className="h-12 object-contain" />
-                </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
-                  <img src={companyLogos} alt="Partner 3" className="h-12 object-contain" />
-                </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
-                  <img src={companyLogos} alt="Partner 4" className="h-12 object-contain" />
-                </div>
-              </div>
-              <div className="flex gap-16 items-center min-w-max">
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-1-copy">
-                  <img src={companyLogos} alt="Partner 1" className="h-12 object-contain" />
-                </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-2-copy">
-                  <img src={companyLogos} alt="Partner 2" className="h-12 object-contain" />
-                </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-3-copy">
-                  <img src={companyLogos} alt="Partner 3" className="h-12 object-contain" />
-                </div>
-                <div className="w-40 h-16 flex items-center justify-center flex-shrink-0" data-testid="logo-4-copy">
-                  <img src={companyLogos} alt="Partner 4" className="h-12 object-contain" />
+                <div className="flex gap-8 items-center min-w-max">
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1-repeat">
+                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2-repeat">
+                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3-repeat">
+                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4-repeat">
+                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
+                  </div>
                 </div>
               </div>
             </div>
