@@ -608,6 +608,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Affiliated Companies Slider */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex items-center gap-8 md:gap-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground whitespace-nowrap flex-shrink-0" data-testid="text-affiliated-title">
+              Affiliated with
+            </h3>
+            <div className="flex-1 overflow-hidden carousel-fade">
+              <div className="flex animate-scroll gap-4 items-center">
+                <div className="flex gap-4 items-center min-w-max">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
+                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
+                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
+                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
+                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
+                  </div>
+                </div>
+                <div className="flex gap-4 items-center min-w-max">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1-repeat">
+                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2-repeat">
+                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3-repeat">
+                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
+                  </div>
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4-repeat">
+                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* The Technology Behind It Section */}
       <section className="py-20 md:py-32 bg-accent/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -663,49 +706,6 @@ export default function Home() {
                 Enable communities to stay in their homes and maintain their way of life while building a sustainable future.
               </p>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Affiliated Companies Slider */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center gap-8 md:gap-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground whitespace-nowrap flex-shrink-0" data-testid="text-affiliated-title">
-              Affiliated with
-            </h3>
-            <div className="flex-1 overflow-hidden carousel-fade">
-              <div className="flex animate-scroll gap-4 items-center">
-                <div className="flex gap-4 items-center min-w-max">
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
-                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
-                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
-                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
-                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
-                  </div>
-                </div>
-                <div className="flex gap-4 items-center min-w-max">
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1-repeat">
-                    <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2-repeat">
-                    <img src={logo2} alt="NSTP" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3-repeat">
-                    <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
-                  </div>
-                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4-repeat">
-                    <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
