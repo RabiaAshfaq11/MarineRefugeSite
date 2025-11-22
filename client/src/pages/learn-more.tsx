@@ -1,0 +1,313 @@
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Waves, ArrowLeft, Anchor, Home as HomeIcon, Droplet, Shield } from "lucide-react";
+import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
+
+export default function LearnMore() {
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="bg-foreground text-background py-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Waves className="w-8 h-8" />
+              <span className="text-xl font-bold">Marine Refuge</span>
+            </div>
+            <Link href="/" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-background/10 h-9 px-4 py-2 text-background" data-testid="link-home">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Home
+            </Link>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-32 bg-primary text-primary-foreground">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="text-learn-more-title">
+            How Amphibious Housing Works
+          </h1>
+          <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto" data-testid="text-learn-more-subtitle">
+            Discover the innovative technology behind our climate-resilient
+            housing solutions
+          </p>
+        </div>
+      </section>
+
+      {/* Introduction */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-intro-title">
+                Floating Foundations for a Changing Climate
+              </h2>
+              <p className="text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-intro-description-1">
+                Amphibious housing represents a revolutionary approach to
+                flood-resistant construction. Unlike traditional homes that are
+                vulnerable to rising water levels, our amphibious houses are
+                designed to float vertically when floodwaters arrive, then
+                return to their original position when waters recede.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-intro-description-2">
+                This innovative solution protects both the structure and its
+                inhabitants while maintaining the community's connection to
+                their land and heritage. It's adaptation without displacement.
+              </p>
+            </div>
+            <div>
+              <img
+                src={aboutImage}
+                alt="Amphibious house demonstration"
+                className="w-full h-auto shadow-2xl"
+                data-testid="img-learn-more-hero"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 md:py-32 bg-accent/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-technology-title">
+              The Technology Behind It
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-technology-subtitle">
+              Our amphibious housing system combines three key components
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="p-8" data-testid="card-tech-1">
+              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
+                <Anchor className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-tech-1-title">
+                Buoyant Foundation
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-tech-1-description">
+                A hollow, watertight foundation made of reinforced concrete or
+                engineered materials that provides buoyancy when water levels
+                rise, allowing the entire structure to float safely.
+              </p>
+            </Card>
+
+            <Card className="p-8" data-testid="card-tech-2">
+              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
+                <HomeIcon className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-tech-2-title">
+                Vertical Guidance System
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-tech-2-description">
+                Steel posts or pylons anchored deep in the ground guide the
+                house's vertical movement, ensuring stability and preventing
+                lateral drift during flooding events.
+              </p>
+            </Card>
+
+            <Card className="p-8" data-testid="card-tech-3">
+              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
+                <Droplet className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-tech-3-title">
+                Flexible Utilities
+              </h3>
+              <p className="text-muted-foreground leading-relaxed" data-testid="text-tech-3-description">
+                Specially designed flexible connections for water, sewage,
+                electricity, and gas that can extend and contract as the house
+                rises and falls without breaking or leaking.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Benefits of Amphibious Housing
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="flex gap-4" data-testid="benefit-1">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Complete Flood Protection
+                </h3>
+                <p className="text-muted-foreground">
+                  Eliminates flood damage to structures and possessions by
+                  rising above floodwaters, protecting both property and
+                  livelihoods.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4" data-testid="benefit-2">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
+                  <HomeIcon className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Community Preservation
+                </h3>
+                <p className="text-muted-foreground">
+                  Allows communities to remain in their ancestral lands rather
+                  than face climate displacement, preserving cultural heritage.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4" data-testid="benefit-3">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
+                  <Droplet className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Cost-Effective Adaptation
+                </h3>
+                <p className="text-muted-foreground">
+                  More affordable than relocating entire communities or building
+                  massive flood defense infrastructure like seawalls.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-4" data-testid="benefit-4">
+              <div className="flex-shrink-0">
+                <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
+                  <Waves className="w-6 h-6 text-primary" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Sustainable Solution
+                </h3>
+                <p className="text-muted-foreground">
+                  Works with nature rather than against it, reducing
+                  environmental impact while providing long-term resilience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 md:py-32 bg-accent/30">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-6">
+            <Card className="p-6" data-testid="faq-1">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Is amphibious housing safe during floods?
+              </h3>
+              <p className="text-muted-foreground">
+                Yes, amphibious houses are engineered to safely rise and fall
+                with floodwaters. The vertical guidance system ensures stability
+                and prevents lateral movement, while the buoyant foundation
+                distributes weight evenly. The technology has been tested in
+                real flood conditions and proven to protect both structures and
+                occupants.
+              </p>
+            </Card>
+
+            <Card className="p-6" data-testid="faq-2">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                How much does an amphibious house cost?
+              </h3>
+              <p className="text-muted-foreground">
+                Costs vary based on size, location, and materials, but
+                amphibious foundations typically add 10-20% to standard
+                construction costs. However, this investment eliminates flood
+                damage repair costs, reduces insurance premiums, and prevents
+                the devastating financial impact of repeated flooding events.
+              </p>
+            </Card>
+
+            <Card className="p-6" data-testid="faq-3">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Can existing homes be retrofitted?
+              </h3>
+              <p className="text-muted-foreground">
+                In some cases, yes. Existing structures can be retrofitted with
+                amphibious foundations, though it requires careful structural
+                assessment and engineering. New construction is typically more
+                cost-effective, but retrofitting may be viable for homes of
+                historical or cultural significance.
+              </p>
+            </Card>
+
+            <Card className="p-6" data-testid="faq-4">
+              <h3 className="text-xl font-semibold text-foreground mb-3">
+                Where has this technology been successfully implemented?
+              </h3>
+              <p className="text-muted-foreground">
+                Amphibious housing has been successfully deployed in flood-prone
+                regions across the Netherlands, United Kingdom, United States,
+                and Southeast Asia. Marine Refuge is working to bring this
+                proven technology to vulnerable coastal communities worldwide.
+              </p>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 md:py-32">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to Learn More?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Contact us to discuss how amphibious housing can protect your
+            community from climate change impacts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-8" data-testid="link-back-home">
+              <ArrowLeft className="mr-2 w-5 h-5" />
+              Back to Home
+            </Link>
+            <Button size="lg" data-testid="button-contact-learn-more">
+              Contact Our Team
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-foreground text-background py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-2">
+              <Waves className="w-6 h-6" />
+              <span className="text-lg font-bold">Marine Refuge</span>
+            </div>
+            <p className="text-sm text-background/70">
+              © 2025 Marine Refuge. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
