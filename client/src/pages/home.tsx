@@ -392,32 +392,32 @@ export default function Home() {
               Affiliated with
             </h3>
             <div className="flex-1 overflow-hidden carousel-fade">
-              <div className="flex animate-scroll gap-8 items-center">
-                <div className="flex gap-8 items-center min-w-max">
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
+              <div className="flex animate-scroll gap-4 items-center">
+                <div className="flex gap-4 items-center min-w-max">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1">
                     <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2">
                     <img src={logo2} alt="NSTP" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3">
                     <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4">
                     <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
                   </div>
                 </div>
-                <div className="flex gap-8 items-center min-w-max">
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1-repeat">
+                <div className="flex gap-4 items-center min-w-max">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-1-repeat">
                     <img src={logo1} alt="NUST Pakistan" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2-repeat">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-2-repeat">
                     <img src={logo2} alt="NSTP" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3-repeat">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-3-repeat">
                     <img src={logo3} alt="NUST Business School" className="h-16 object-contain" />
                   </div>
-                  <div className="w-32 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4-repeat">
+                  <div className="w-24 h-20 flex items-center justify-center flex-shrink-0" data-testid="logo-4-repeat">
                     <img src={logo4} alt="NUST NICE" className="h-16 object-contain" />
                   </div>
                 </div>
