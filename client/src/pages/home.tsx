@@ -383,48 +383,54 @@ export default function Home() {
               Our Key Activities
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-activity-1">
-              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
-                <Building2 className="w-8 h-8 text-primary" />
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 rounded-md" data-testid="card-activity-1">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
+                <Building2 className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-1-title">
                 Amphibious Housing Design
               </h3>
-              <p className="text-muted-foreground leading-relaxed" data-testid="text-activity-1-description">
-                We engineer innovative floating foundation systems that allow
-                homes to rise and fall with water levels, protecting residents
-                and property from flood damage.
+              <p className="text-primary leading-relaxed" data-testid="text-activity-1-description">
+                We engineer innovative floating foundation systems that allow homes to rise and fall with water levels, protecting residents and property from flood damage.
               </p>
-            </Card>
+            </div>
 
-            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-activity-2">
-              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
-                <Users className="w-8 h-8 text-primary" />
+            <div className="bg-white p-8 rounded-md" data-testid="card-activity-2">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
+                <Users className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-2-title">
                 Community Engagement
               </h3>
-              <p className="text-muted-foreground leading-relaxed" data-testid="text-activity-2-description">
-                We work directly with vulnerable coastal communities to
-                understand their needs and co-create sustainable housing
-                solutions that preserve their way of life.
+              <p className="text-primary leading-relaxed" data-testid="text-activity-2-description">
+                We work directly with vulnerable coastal communities to understand their needs and co-create sustainable housing solutions that preserve their way of life.
               </p>
-            </Card>
+            </div>
 
-            <Card className="p-8 hover-elevate transition-all duration-300" data-testid="card-activity-3">
-              <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-primary" />
+            <div className="bg-white p-8 rounded-md" data-testid="card-activity-3">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
+                <Shield className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-3-title">
                 Climate Adaptation Research
               </h3>
-              <p className="text-muted-foreground leading-relaxed" data-testid="text-activity-3-description">
-                Our team conducts cutting-edge research on climate resilience,
-                developing best practices for flood mitigation and sustainable
-                urban planning.
+              <p className="text-primary leading-relaxed" data-testid="text-activity-3-description">
+                Our team conducts cutting-edge research on climate resilience, developing best practices for flood mitigation and sustainable urban planning.
               </p>
-            </Card>
+            </div>
+
+            <div className="bg-white p-8 rounded-md" data-testid="card-activity-4">
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center mb-6 rounded-md">
+                <Waves className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-2xl font-semibold text-foreground mb-4" data-testid="text-activity-4-title">
+                Sustainable Design
+              </h3>
+              <p className="text-primary leading-relaxed" data-testid="text-activity-4-description">
+                Build with eco-friendly materials and designed to minimize environmental impact.
+              </p>
+            </div>
           </div>
         </div>
       </section>
