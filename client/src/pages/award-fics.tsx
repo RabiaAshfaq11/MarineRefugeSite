@@ -10,9 +10,9 @@ export default function AwardFics() {
       <header className="bg-foreground text-background py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" data-testid="header-brand">
               <Waves className="w-8 h-8" />
-              <span className="text-xl font-bold">Marine Refuge</span>
+              <span className="text-xl font-bold" data-testid="text-brand-name">Marine Refuge</span>
             </div>
             <Link href="/" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-background/10 h-9 px-4 py-2 text-background" data-testid="link-home">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -95,10 +95,10 @@ export default function AwardFics() {
       {/* CTA Section */}
       <section className="py-20 md:py-32">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-cta-title">
             Join Us in Building Resilient Communities
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8" data-testid="text-cta-description">
             Learn more about our amphibious housing solutions and how we're
             making a difference.
           </p>
@@ -118,11 +118,11 @@ export default function AwardFics() {
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" data-testid="footer-brand">
               <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold">Marine Refuge</span>
+              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
             </div>
-            <p className="text-sm text-background/70">
+            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
             </p>
           </div>

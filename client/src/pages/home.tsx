@@ -43,7 +43,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
               <Waves className="w-8 h-8 text-primary" />
-              <span className="text-xl font-bold text-foreground">
+              <span className="text-xl font-bold text-foreground" data-testid="text-brand-name">
                 Marine Refuge
               </span>
             </div>
@@ -366,7 +366,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2" data-testid="footer-brand">
               <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold">Marine Refuge</span>
+              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
             </div>
             <p className="text-sm text-background/70" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.

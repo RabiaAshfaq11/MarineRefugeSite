@@ -11,9 +11,9 @@ export default function LearnMore() {
       <header className="bg-foreground text-background py-6">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" data-testid="header-brand">
               <Waves className="w-8 h-8" />
-              <span className="text-xl font-bold">Marine Refuge</span>
+              <span className="text-xl font-bold" data-testid="text-brand-name">Marine Refuge</span>
             </div>
             <Link href="/" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-background/10 h-9 px-4 py-2 text-background" data-testid="link-home">
               <ArrowLeft className="w-4 h-4 mr-2" />
@@ -131,7 +131,7 @@ export default function LearnMore() {
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-benefits-title">
               Benefits of Amphibious Housing
             </h2>
           </div>
@@ -144,10 +144,10 @@ export default function LearnMore() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-2" data-testid="text-benefit-1-title">
                   Complete Flood Protection
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" data-testid="text-benefit-1-description">
                   Eliminates flood damage to structures and possessions by
                   rising above floodwaters, protecting both property and
                   livelihoods.
@@ -162,10 +162,10 @@ export default function LearnMore() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-2" data-testid="text-benefit-2-title">
                   Community Preservation
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" data-testid="text-benefit-2-description">
                   Allows communities to remain in their ancestral lands rather
                   than face climate displacement, preserving cultural heritage.
                 </p>
@@ -179,10 +179,10 @@ export default function LearnMore() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-2" data-testid="text-benefit-3-title">
                   Cost-Effective Adaptation
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" data-testid="text-benefit-3-description">
                   More affordable than relocating entire communities or building
                   massive flood defense infrastructure like seawalls.
                 </p>
@@ -196,10 +196,10 @@ export default function LearnMore() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-2" data-testid="text-benefit-4-title">
                   Sustainable Solution
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-muted-foreground" data-testid="text-benefit-4-description">
                   Works with nature rather than against it, reducing
                   environmental impact while providing long-term resilience.
                 </p>
@@ -212,16 +212,16 @@ export default function LearnMore() {
       {/* FAQ Section */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center" data-testid="text-faq-title">
             Frequently Asked Questions
           </h2>
 
           <div className="space-y-6">
             <Card className="p-6" data-testid="faq-1">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-1-question">
                 Is amphibious housing safe during floods?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground" data-testid="text-faq-1-answer">
                 Yes, amphibious houses are engineered to safely rise and fall
                 with floodwaters. The vertical guidance system ensures stability
                 and prevents lateral movement, while the buoyant foundation
@@ -232,10 +232,10 @@ export default function LearnMore() {
             </Card>
 
             <Card className="p-6" data-testid="faq-2">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-2-question">
                 How much does an amphibious house cost?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground" data-testid="text-faq-2-answer">
                 Costs vary based on size, location, and materials, but
                 amphibious foundations typically add 10-20% to standard
                 construction costs. However, this investment eliminates flood
@@ -245,10 +245,10 @@ export default function LearnMore() {
             </Card>
 
             <Card className="p-6" data-testid="faq-3">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-3-question">
                 Can existing homes be retrofitted?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground" data-testid="text-faq-3-answer">
                 In some cases, yes. Existing structures can be retrofitted with
                 amphibious foundations, though it requires careful structural
                 assessment and engineering. New construction is typically more
@@ -258,10 +258,10 @@ export default function LearnMore() {
             </Card>
 
             <Card className="p-6" data-testid="faq-4">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-4-question">
                 Where has this technology been successfully implemented?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground" data-testid="text-faq-4-answer">
                 Amphibious housing has been successfully deployed in flood-prone
                 regions across the Netherlands, United Kingdom, United States,
                 and Southeast Asia. Marine Refuge is working to bring this
@@ -275,10 +275,10 @@ export default function LearnMore() {
       {/* CTA Section */}
       <section className="py-20 md:py-32">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-cta-title">
             Ready to Learn More?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-muted-foreground mb-8" data-testid="text-cta-description">
             Contact us to discuss how amphibious housing can protect your
             community from climate change impacts.
           </p>
@@ -298,11 +298,11 @@ export default function LearnMore() {
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2" data-testid="footer-brand">
               <Waves className="w-6 h-6" />
-              <span className="text-lg font-bold">Marine Refuge</span>
+              <span className="text-lg font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
             </div>
-            <p className="text-sm text-background/70">
+            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
               © 2025 Marine Refuge. All rights reserved.
             </p>
           </div>
