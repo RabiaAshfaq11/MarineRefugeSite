@@ -200,31 +200,9 @@ function ScrollTransitionSection() {
     >
       <div
         ref={sectionRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-center justify-center overflow-hidden bg-accent/10"
         data-testid="section-scroll-transition"
       >
-        {/* Background Image 1 */}
-        <img
-          src={technologyImage1}
-          alt="Amphibious housing in nature"
-          className="absolute inset-0 w-full h-full object-cover"
-          data-testid="img-technology-1"
-          onLoad={() => setIsLoaded(true)}
-        />
-
-        {/* Overlay Image 2 with scroll-based opacity */}
-        {isLoaded && (
-          <img
-            src={technologyImage2}
-            alt="Amphibious housing in water"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-            style={{ opacity: imageOpacity }}
-            data-testid="img-technology-2"
-          />
-        )}
-
-        {/* Dark overlay for better text contrast if needed */}
-        <div className="absolute inset-0 bg-black/20" />
       </div>
     </div>
   );

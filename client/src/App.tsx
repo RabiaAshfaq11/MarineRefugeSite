@@ -8,7 +8,7 @@ import LearnMore from "@/pages/learn-more";
 import AwardFics from "@/pages/award-fics";
 import AwardHult from "@/pages/award-hult";
 import NotFound from "@/pages/not-found";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 function Router() {
   return (
@@ -23,45 +23,42 @@ function Router() {
 }
 
 function App() {
+  const targetScrollRef = useRef(0);
+
   useEffect(() => {
-    let scrollTimeout: NodeJS.Timeout;
+    targetScrollRef.current = window.scrollY;
+    let animationFrameId: number;
+    let wheelTimeout: NodeJS.Timeout;
+    const damping = 0.15; // Lower = slower follow (0.1 = very slow, 0.3 = faster)
 
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        window.scrollBy({
-          top: e.deltaY > 0 ? 100 : -100,
-          behavior: 'smooth'
-        });
-      }, 1000);
+      targetScrollRef.current += e.deltaY;
+      targetScrollRef.current = Math.max(0, Math.min(targetScrollRef.current, document.documentElement.scrollHeight - window.innerHeight));
+
+      // Clear existing timeout
+      clearTimeout(wheelTimeout);
+      // Reset timeout on each wheel event
+      wheelTimeout = setTimeout(() => {}, 100);
     };
 
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' '].includes(e.key)) {
-        e.preventDefault();
-        
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          let scrollAmount = 100;
-          if (e.key === 'PageUp' || e.key === 'PageDown') scrollAmount = window.innerHeight - 100;
-          
-          window.scrollBy({
-            top: (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') ? scrollAmount : -scrollAmount,
-            behavior: 'smooth'
-          });
-        }, 1000);
+    const animateScroll = () => {
+      const currentScroll = window.scrollY;
+      const diff = targetScrollRef.current - currentScroll;
+      
+      if (Math.abs(diff) > 0.1) {
+        window.scrollTo(0, currentScroll + diff * damping);
+        animationFrameId = requestAnimationFrame(animateScroll);
       }
     };
 
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('keydown', handleKeyDown);
+    animationFrameId = requestAnimationFrame(animateScroll);
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('keydown', handleKeyDown);
-      clearTimeout(scrollTimeout);
+      cancelAnimationFrame(animationFrameId);
+      clearTimeout(wheelTimeout);
     };
   }, []);
 
