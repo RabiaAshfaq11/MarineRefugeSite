@@ -144,6 +144,7 @@ function ScrollTransitionSection() {
   const sectionStartRef = useRef(0);
   const [imageOpacity, setImageOpacity] = useState(0);
   const [isTransitionComplete, setIsTransitionComplete] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // Store the initial position of the section
@@ -208,16 +209,19 @@ function ScrollTransitionSection() {
           alt="Amphibious housing in nature"
           className="absolute inset-0 w-full h-full object-cover"
           data-testid="img-technology-1"
+          onLoad={() => setIsLoaded(true)}
         />
 
         {/* Overlay Image 2 with scroll-based opacity */}
-        <img
-          src={technologyImage2}
-          alt="Amphibious housing in water"
-          className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-          style={{ opacity: imageOpacity }}
-          data-testid="img-technology-2"
-        />
+        {isLoaded && (
+          <img
+            src={technologyImage2}
+            alt="Amphibious housing in water"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+            style={{ opacity: imageOpacity }}
+            data-testid="img-technology-2"
+          />
+        )}
 
         {/* Dark overlay for better text contrast if needed */}
         <div className="absolute inset-0 bg-black/20" />
