@@ -283,7 +283,7 @@ export default function LearnMore() {
               <div className="border-b border-foreground/20 mt-6" />
             </div>
 
-            <div className="py-6" data-testid="faq-4">
+            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-4">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-4-question">
                 Where has this technology been successfully implemented?
               </h3>
