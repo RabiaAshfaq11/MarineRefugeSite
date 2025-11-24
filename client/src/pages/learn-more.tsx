@@ -2,26 +2,57 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Waves, ArrowLeft, Anchor, Home as HomeIcon, Droplet, Shield } from "lucide-react";
+import { useState, useEffect } from "react";
+import logoLight from "@assets/targeted_element_1763829124980.png";
+import logoHouse from "@assets/Asset 1_1763829102049.png";
 import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
 
 export default function LearnMore() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="bg-foreground text-background py-6">
+      {/* Sticky Navbar */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-lg shadow-sm"
+            : "bg-transparent"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2" data-testid="header-brand">
-              <Waves className="w-8 h-8" />
-              <span className="text-xl font-bold" data-testid="text-brand-name">Marine Refuge</span>
-            </div>
-            <Link href="/" className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-background/10 h-9 px-4 py-2 text-background" data-testid="link-home">
+          <div className="flex items-center justify-between h-20">
+            <Link href="/" className="flex items-center gap-2" data-testid="nav-brand">
+              <img 
+                src={scrolled ? logoHouse : logoLight} 
+                alt="Marine Refuge" 
+                className={`h-8 transition-all duration-300 ${scrolled ? "w-8" : "w-auto"}`}
+              />
+              <span className={`text-xl font-bold transition-colors duration-300 ${
+                scrolled ? "text-primary" : "text-white"
+              }`} data-testid="text-brand-name">
+                Marine Refuge
+              </span>
+            </Link>
+            <Link href="/" className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 ${
+              scrolled 
+                ? "text-foreground hover:text-primary" 
+                : "text-white hover:text-accent"
+            }`} data-testid="link-home">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Link>
           </div>
         </div>
-      </header>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 bg-primary text-primary-foreground">
