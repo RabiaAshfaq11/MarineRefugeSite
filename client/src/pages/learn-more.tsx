@@ -260,62 +260,40 @@ export default function LearnMore() {
       {/* FAQ Section */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center" data-testid="text-faq-title">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 text-center" data-testid="text-faq-title">
             Frequently Asked Questions
           </h2>
 
-          <div className="space-y-6">
-            <Card className="p-6" data-testid="faq-1">
-              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-1-question">
+          <div className="space-y-0">
+            <div className="border-t border-foreground/20" />
+            
+            <div className="py-6" data-testid="faq-1">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-1-question">
                 Is amphibious housing safe during floods?
               </h3>
-              <p className="text-muted-foreground" data-testid="text-faq-1-answer">
-                Yes, amphibious houses are engineered to safely rise and fall
-                with floodwaters. The vertical guidance system ensures stability
-                and prevents lateral movement, while the buoyant foundation
-                distributes weight evenly. The technology has been tested in
-                real flood conditions and proven to protect both structures and
-                occupants.
-              </p>
-            </Card>
+              <div className="border-b border-foreground/20 mt-6" />
+            </div>
 
-            <Card className="p-6" data-testid="faq-2">
-              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-2-question">
+            <div className="py-6" data-testid="faq-2">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-2-question">
                 How much does an amphibious house cost?
               </h3>
-              <p className="text-muted-foreground" data-testid="text-faq-2-answer">
-                Costs vary based on size, location, and materials, but
-                amphibious foundations typically add 10-20% to standard
-                construction costs. However, this investment eliminates flood
-                damage repair costs, reduces insurance premiums, and prevents
-                the devastating financial impact of repeated flooding events.
-              </p>
-            </Card>
+              <div className="border-b border-foreground/20 mt-6" />
+            </div>
 
-            <Card className="p-6" data-testid="faq-3">
-              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-3-question">
+            <div className="py-6" data-testid="faq-3">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-3-question">
                 Can existing homes be retrofitted?
               </h3>
-              <p className="text-muted-foreground" data-testid="text-faq-3-answer">
-                In some cases, yes. Existing structures can be retrofitted with
-                amphibious foundations, though it requires careful structural
-                assessment and engineering. New construction is typically more
-                cost-effective, but retrofitting may be viable for homes of
-                historical or cultural significance.
-              </p>
-            </Card>
+              <div className="border-b border-foreground/20 mt-6" />
+            </div>
 
-            <Card className="p-6" data-testid="faq-4">
-              <h3 className="text-xl font-semibold text-foreground mb-3" data-testid="text-faq-4-question">
+            <div className="py-6" data-testid="faq-4">
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-4-question">
                 Where has this technology been successfully implemented?
               </h3>
-              <p className="text-muted-foreground" data-testid="text-faq-4-answer">
-                Amphibious housing has been successfully deployed in flood-prone
-                regions across the Netherlands, United Kingdom, United States,
-                and Southeast Asia. Marine Refuge is working to bring this
-                proven technology to vulnerable coastal communities worldwide.
-              </p>
-            </Card>
+              <div className="border-b border-foreground/20 mt-6" />
+            </div>
           </div>
         </div>
       </section>
