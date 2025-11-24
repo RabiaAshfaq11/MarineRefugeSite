@@ -2,24 +2,17 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Waves, ArrowLeft, Anchor, Home as HomeIcon, Droplet, Shield } from "lucide-react";
-import { useState, useEffect } from "react";
 import logoLight from "@assets/targeted_element_1763829124980.png";
 import logoHouse from "@assets/Asset 1_1763829102049.png";
 import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
 import heroVideo from "@assets/14758955_1920_1080_30fps_1763971565251.mp4";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { useScroll } from "@/contexts/scroll-context";
 
 export default function LearnMore() {
-  const [scrolled, setScrolled] = useState(false);
+  const { scroll } = useScroll();
+  const scrolled = scroll > 20;
   useFadeUp();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-background">

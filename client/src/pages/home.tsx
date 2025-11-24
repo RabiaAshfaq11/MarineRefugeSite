@@ -29,6 +29,7 @@ import technologyImage1 from "@assets/3_1763810423345.png";
 import technologyImage2 from "@assets/1_1763810432206.png";
 import { useState, useEffect, useRef } from "react";
 import { useFadeUp } from "@/hooks/use-fade-up";
+import { useScroll } from "@/contexts/scroll-context";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -333,16 +334,9 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
+  const { scroll } = useScroll();
+  const scrolled = scroll > 20;
   useFadeUp();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

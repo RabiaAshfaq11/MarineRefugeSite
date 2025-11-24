@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FollowCursor } from "@/components/follow-cursor";
+import { ScrollProvider, useScroll } from "@/contexts/scroll-context";
 import Home from "@/pages/home";
 import LearnMore from "@/pages/learn-more";
 import AwardFics from "@/pages/award-fics";
@@ -23,14 +24,14 @@ function Router() {
   );
 }
 
-function App() {
+function AppContent() {
+  const { setScroll } = useScroll();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollStateRef = useRef({
     current: 0,
     target: 0,
     max: 0,
   });
-  const [, setScroll] = useState(0);
 
   useEffect(() => {
     // Update max scroll height
@@ -104,23 +105,31 @@ function App() {
       window.removeEventListener("resize", updateMaxScroll);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [setScroll]);
 
+  return (
+    <div
+      ref={wrapperRef}
+      className="scroll-wrapper"
+      style={{
+        width: "100%",
+        transformOrigin: "top",
+      }}
+    >
+      <Toaster />
+      <Router />
+    </div>
+  );
+}
+
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <FollowCursor />
-        <div
-          ref={wrapperRef}
-          className="scroll-wrapper"
-          style={{
-            width: "100%",
-            transformOrigin: "top",
-          }}
-        >
-          <Toaster />
-          <Router />
-        </div>
+        <ScrollProvider>
+          <FollowCursor />
+          <AppContent />
+        </ScrollProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
