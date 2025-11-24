@@ -556,7 +556,7 @@ export default function Home() {
             </div>
 
             {/* Center Logo */}
-            <div className="flex justify-center items-center col-span-1">
+            <div className="flex justify-center items-center col-span-1 fade-up-trigger">
               <img
                 src="/logo.png"
                 alt="Marine Refuge Logo"
