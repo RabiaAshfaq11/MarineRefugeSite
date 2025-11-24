@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import logoLight from "@assets/targeted_element_1763829124980.png";
 import logoHouse from "@assets/Asset 1_1763829102049.png";
 import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
+import heroVideo from "@assets/14758955_1920_1080_30fps_1763971565251.mp4";
 
 export default function LearnMore() {
   const [scrolled, setScrolled] = useState(false);
@@ -55,8 +56,24 @@ export default function LearnMore() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-primary text-primary-foreground">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          data-testid="video-hero"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+
+        {/* Fading Black Gradient Overlay (top to bottom) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+
+        {/* Content */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center text-primary-foreground">
           <h1 className="text-5xl md:text-6xl font-bold mb-6" data-testid="text-learn-more-title">
             How Amphibious Housing Works
           </h1>
