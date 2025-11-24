@@ -262,7 +262,7 @@ export default function LearnMore() {
           <div className="space-y-0">
             <div className="border-t border-foreground/20" />
             
-            <div className="py-6" data-testid="faq-1">
+            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-1">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-1-question">
                 Is amphibious housing safe during floods?
               </h3>
