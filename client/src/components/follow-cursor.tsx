@@ -5,6 +5,7 @@ export function FollowCursor() {
   const positionRef = useRef({ x: 0, y: 0 });
   const targetRef = useRef({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isTextHovering, setIsTextHovering] = useState(false);
   const animationFrameRef = useRef<number>();
 
   useEffect(() => {
@@ -18,6 +19,14 @@ export function FollowCursor() {
 
     const handleMouseLeave = () => {
       setIsHovering(false);
+    };
+
+    const handleTextMouseEnter = () => {
+      setIsTextHovering(true);
+    };
+
+    const handleTextMouseLeave = () => {
+      setIsTextHovering(false);
     };
 
     // Animate cursor position with lerp
@@ -55,6 +64,16 @@ export function FollowCursor() {
       el.addEventListener("mouseleave", handleMouseLeave);
     });
 
+    // Text elements that trigger text cursor
+    const textElements = document.querySelectorAll(
+      "p, h1, h2, h3, h4, h5, h6, span, li, div"
+    );
+
+    textElements.forEach((el) => {
+      el.addEventListener("mouseenter", handleTextMouseEnter);
+      el.addEventListener("mouseleave", handleTextMouseLeave);
+    });
+
     window.addEventListener("mousemove", handleMouseMove);
 
     animationFrameRef.current = requestAnimationFrame(animate);
@@ -64,6 +83,10 @@ export function FollowCursor() {
       interactiveElements.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
         el.removeEventListener("mouseleave", handleMouseLeave);
+      });
+      textElements.forEach((el) => {
+        el.removeEventListener("mouseenter", handleTextMouseEnter);
+        el.removeEventListener("mouseleave", handleTextMouseLeave);
       });
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -75,6 +98,7 @@ export function FollowCursor() {
     <div
       ref={cursorRef}
       className={`follow-cursor ${isHovering ? "hover" : ""}`}
+      style={isTextHovering ? { cursor: "text" } : { cursor: "auto" }}
       data-testid="follow-cursor"
     />
   );
