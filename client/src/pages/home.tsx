@@ -520,7 +520,11 @@ export default function Home() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
-                  borderRadius: "0px",
+                  borderRadius: "10px",
+                  minHeight: "280px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
                 }}
               >
                 <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
@@ -537,7 +541,11 @@ export default function Home() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
-                  borderRadius: "0px",
+                  borderRadius: "10px",
+                  minHeight: "280px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
                 }}
               >
                 <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
@@ -569,7 +577,11 @@ export default function Home() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
-                  borderRadius: "0px",
+                  borderRadius: "10px",
+                  minHeight: "280px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
                 }}
               >
                 <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
@@ -586,7 +598,11 @@ export default function Home() {
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
-                  borderRadius: "0px",
+                  borderRadius: "10px",
+                  minHeight: "280px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
                 }}
               >
                 <h3 className="text-xl font-bold mb-4" style={{ color: "#07EBE1" }}>
