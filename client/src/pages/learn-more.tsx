@@ -7,9 +7,11 @@ import logoLight from "@assets/targeted_element_1763829124980.png";
 import logoHouse from "@assets/Asset 1_1763829102049.png";
 import aboutImage from "@assets/generated_images/about_section_amphibious_house.png";
 import heroVideo from "@assets/14758955_1920_1080_30fps_1763971565251.mp4";
+import { useFadeUp } from "@/hooks/use-fade-up";
 
 export default function LearnMore() {
   const [scrolled, setScrolled] = useState(false);
+  useFadeUp();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -101,24 +103,24 @@ export default function LearnMore() {
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-intro-title">
+            <div className="flex flex-col gap-6">
+              <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-intro-title">
                 Floating Foundations for a Changing Climate
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-intro-description-1">
+              <p className="fade-up-trigger text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-intro-description-1">
                 Amphibious housing represents a revolutionary approach to
                 flood-resistant construction. Unlike traditional homes that are
                 vulnerable to rising water levels, our amphibious houses are
                 designed to float vertically when floodwaters arrive, then
                 return to their original position when waters recede.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-intro-description-2">
+              <p className="fade-up-trigger text-lg text-muted-foreground leading-relaxed" data-testid="text-intro-description-2">
                 This innovative solution protects both the structure and its
                 inhabitants while maintaining the community's connection to
                 their land and heritage. It's adaptation without displacement.
               </p>
             </div>
-            <div>
+            <div className="fade-up-trigger">
               <img
                 src={aboutImage}
                 alt="Amphibious house demonstration"
@@ -132,17 +134,17 @@ export default function LearnMore() {
       {/* How It Works */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-technology-title">
+          <div className="text-center mb-16 flex flex-col gap-4">
+            <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-technology-title">
               The Technology Behind It
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-technology-subtitle">
+            <p className="fade-up-trigger text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-technology-subtitle">
               Our amphibious housing system combines three key components
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8" data-testid="card-tech-1">
+            <Card className="fade-up-trigger p-8" data-testid="card-tech-1">
               <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
                 <Anchor className="w-8 h-8 text-primary" />
               </div>
@@ -156,7 +158,7 @@ export default function LearnMore() {
               </p>
             </Card>
 
-            <Card className="p-8" data-testid="card-tech-2">
+            <Card className="fade-up-trigger p-8" data-testid="card-tech-2">
               <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
                 <HomeIcon className="w-8 h-8 text-primary" />
               </div>
@@ -170,7 +172,7 @@ export default function LearnMore() {
               </p>
             </Card>
 
-            <Card className="p-8" data-testid="card-tech-3">
+            <Card className="fade-up-trigger p-8" data-testid="card-tech-3">
               <div className="w-14 h-14 bg-primary/10 flex items-center justify-center mb-6">
                 <Droplet className="w-8 h-8 text-primary" />
               </div>
@@ -190,13 +192,13 @@ export default function LearnMore() {
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-benefits-title">
+            <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-benefits-title">
               Benefits of Amphibious Housing
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="flex gap-4" data-testid="benefit-1">
+            <div className="fade-up-trigger flex gap-4" data-testid="benefit-1">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
                   <Shield className="w-6 h-6 text-primary" />
@@ -214,7 +216,7 @@ export default function LearnMore() {
               </div>
             </div>
 
-            <div className="flex gap-4" data-testid="benefit-2">
+            <div className="fade-up-trigger flex gap-4" data-testid="benefit-2">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
                   <HomeIcon className="w-6 h-6 text-primary" />
@@ -231,7 +233,7 @@ export default function LearnMore() {
               </div>
             </div>
 
-            <div className="flex gap-4" data-testid="benefit-3">
+            <div className="fade-up-trigger flex gap-4" data-testid="benefit-3">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
                   <Droplet className="w-6 h-6 text-primary" />
@@ -248,7 +250,7 @@ export default function LearnMore() {
               </div>
             </div>
 
-            <div className="flex gap-4" data-testid="benefit-4">
+            <div className="fade-up-trigger flex gap-4" data-testid="benefit-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary/10 flex items-center justify-center">
                   <Waves className="w-6 h-6 text-primary" />
@@ -270,35 +272,35 @@ export default function LearnMore() {
       {/* FAQ Section */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-16 text-center" data-testid="text-faq-title">
+          <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-16 text-center" data-testid="text-faq-title">
             Frequently Asked Questions
           </h2>
 
           <div className="space-y-0">
             <div className="border-t border-foreground/20" />
             
-            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-1">
+            <div className="fade-up-trigger py-6 pt-[2px] pb-[2px]" data-testid="faq-1">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-1-question">
                 Is amphibious housing safe during floods?
               </h3>
               <div className="border-b border-foreground/20 mt-6" />
             </div>
 
-            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-2">
+            <div className="fade-up-trigger py-6 pt-[2px] pb-[2px]" data-testid="faq-2">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-2-question">
                 How much does an amphibious house cost?
               </h3>
               <div className="border-b border-foreground/20 mt-6" />
             </div>
 
-            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-3">
+            <div className="fade-up-trigger py-6 pt-[2px] pb-[2px]" data-testid="faq-3">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-3-question">
                 Can existing homes be retrofitted?
               </h3>
               <div className="border-b border-foreground/20 mt-6" />
             </div>
 
-            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-4">
+            <div className="fade-up-trigger py-6 pt-[2px] pb-[2px]" data-testid="faq-4">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-4-question">
                 Where has this technology been successfully implemented?
               </h3>
