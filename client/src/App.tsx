@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { FollowCursor } from "@/components/follow-cursor";
 import Home from "@/pages/home";
 import LearnMore from "@/pages/learn-more";
 import AwardFics from "@/pages/award-fics";
@@ -108,6 +109,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <FollowCursor />
         <div
           ref={wrapperRef}
           className="scroll-wrapper"
