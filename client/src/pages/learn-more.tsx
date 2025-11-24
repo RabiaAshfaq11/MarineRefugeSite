@@ -43,14 +43,29 @@ export default function LearnMore() {
                 Marine Refuge
               </span>
             </Link>
-            <Link href="/" className={`inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-4 py-2 ${
-              scrolled 
-                ? "text-foreground hover:text-primary" 
-                : "text-white hover:text-accent"
-            }`} data-testid="link-home">
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Home
-            </Link>
+            <div className="hidden md:flex items-center gap-8">
+              <Link href="/" className={`transition-colors font-medium ${
+                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+              }`} data-testid="nav-home">
+                Home
+              </Link>
+              <Link href="/" className={`transition-colors font-medium ${
+                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
+              }`} data-testid="nav-back-home">
+                <ArrowLeft className="inline-block w-5 h-5 mr-2" />
+                Back to Home
+              </Link>
+            </div>
+            <div className="md:hidden">
+              <Link href="/" className={`inline-flex items-center gap-2 font-medium transition-colors duration-300 ${
+                scrolled
+                  ? "text-foreground hover:text-primary"
+                  : "text-white hover:text-accent"
+              }`} data-testid="nav-back-home-mobile">
+                <ArrowLeft className="w-5 h-5" />
+                Back
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
