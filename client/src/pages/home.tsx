@@ -28,6 +28,7 @@ import ayaanPhoto from "@assets/image_1763827286844.png";
 import technologyImage1 from "@assets/3_1763810423345.png";
 import technologyImage2 from "@assets/1_1763810432206.png";
 import { useState, useEffect, useRef } from "react";
+import { useFadeUp } from "@/hooks/use-fade-up";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -333,6 +334,7 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  useFadeUp();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -463,21 +465,21 @@ export default function Home() {
       <section id="about" className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-about-label">
+            <div className="flex flex-col gap-6">
+              <p className="fade-up-trigger text-sm font-semibold text-primary uppercase tracking-wider mb-4" data-testid="text-about-label">
                 About Us
               </p>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-about-title">
+              <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-about-title">
                 Building Resilient Futures
               </h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-about-description-1">
+              <p className="fade-up-trigger text-lg text-muted-foreground mb-6 leading-relaxed" data-testid="text-about-description-1">
                 Marine Refuge is dedicated to developing innovative amphibious
                 housing solutions that protect coastal communities from the
                 devastating impacts of climate change. Our mission is to create
                 sustainable, flood-resistant homes that rise with water levels,
                 ensuring safety and security for vulnerable populations.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed" data-testid="text-about-description-2">
+              <p className="fade-up-trigger text-lg text-muted-foreground leading-relaxed" data-testid="text-about-description-2">
                 Through cutting-edge engineering and community-centered design,
                 we're transforming how the world approaches climate adaptation
                 in flood-prone regions. Our amphibious housing technology
@@ -499,15 +501,15 @@ export default function Home() {
       {/* What We Do Section */}
       <section id="what-we-do" className="py-20 md:py-32 bg-[#23454C]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 flex flex-col gap-4">
             <p
-              className="text-sm font-semibold uppercase tracking-wider mb-3"
+              className="fade-up-trigger text-sm font-semibold uppercase tracking-wider mb-3"
               style={{ color: "#07EBE1" }}
             >
               What We Do
             </p>
             <h2
-              className="text-5xl md:text-6xl font-bold"
+              className="fade-up-trigger text-5xl md:text-6xl font-bold"
               style={{ color: "white" }}
             >
               Our Key Activities
@@ -520,7 +522,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 col-span-2">
               {/* Card 1 */}
               <div
-                className="p-10 border-b-2"
+                className="fade-up-trigger p-10 border-b-2"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
@@ -537,7 +539,7 @@ export default function Home() {
 
               {/* Card 2 */}
               <div
-                className="p-10 border-b-2"
+                className="fade-up-trigger p-10 border-b-2"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
@@ -569,7 +571,7 @@ export default function Home() {
             <div className="flex flex-col gap-6 col-span-2">
               {/* Card 3 */}
               <div
-                className="p-10 border-b-2"
+                className="fade-up-trigger p-10 border-b-2"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
@@ -586,7 +588,7 @@ export default function Home() {
 
               {/* Card 4 */}
               <div
-                className="p-10 border-b-2"
+                className="fade-up-trigger p-10 border-b-2"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.1)",
                   borderColor: "#07EBE1",
@@ -611,7 +613,7 @@ export default function Home() {
       <section className="py-20 md:py-32 bg-accent/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-sdg-title">
+            <h2 className="fade-up-trigger text-4xl md:text-5xl font-bold text-foreground mb-4" data-testid="text-sdg-title">
               Aligned with UN Sustainable Development Goals
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-sdg-subtitle">
