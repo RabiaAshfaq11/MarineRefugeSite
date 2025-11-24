@@ -269,7 +269,7 @@ export default function LearnMore() {
               <div className="border-b border-foreground/20 mt-6" />
             </div>
 
-            <div className="py-6" data-testid="faq-2">
+            <div className="py-6 pt-[2px] pb-[2px]" data-testid="faq-2">
               <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-2-question">
                 How much does an amphibious house cost?
               </h3>
