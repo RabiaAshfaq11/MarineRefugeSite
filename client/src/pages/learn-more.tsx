@@ -284,7 +284,7 @@ export default function LearnMore() {
             </div>
 
             <div className="py-6" data-testid="faq-4">
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-4-question">
+              <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-4-question">
                 Where has this technology been successfully implemented?
               </h3>
               <div className="border-b border-foreground/20 mt-6" />
