@@ -54,7 +54,6 @@ export default function LearnMore() {
           </div>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden mt-20">
         {/* Video Background */}
@@ -83,7 +82,6 @@ export default function LearnMore() {
           </p>
         </div>
       </section>
-
       {/* Introduction */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -116,7 +114,6 @@ export default function LearnMore() {
           </div>
         </div>
       </section>
-
       {/* How It Works */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -174,7 +171,6 @@ export default function LearnMore() {
           </div>
         </div>
       </section>
-
       {/* Benefits */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -256,7 +252,6 @@ export default function LearnMore() {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       <section className="py-20 md:py-32 bg-accent/30">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
@@ -268,7 +263,7 @@ export default function LearnMore() {
             <div className="border-t border-foreground/20" />
             
             <div className="py-6" data-testid="faq-1">
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground" data-testid="text-faq-1-question">
+              <h3 className="md:text-2xl text-foreground text-[21px] font-extralight" data-testid="text-faq-1-question">
                 Is amphibious housing safe during floods?
               </h3>
               <div className="border-b border-foreground/20 mt-6" />
@@ -297,7 +292,6 @@ export default function LearnMore() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-20 md:py-32">
         <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
@@ -319,7 +313,6 @@ export default function LearnMore() {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-foreground text-background py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
