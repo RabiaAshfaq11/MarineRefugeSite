@@ -8,9 +8,11 @@ import aboutImage from "@assets/generated_images/about_section_amphibious_house.
 import heroVideo from "@assets/14758955_1920_1080_30fps_1763971565251.mp4";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { useScroll } from "@/contexts/scroll-context";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 
 export default function LearnMore() {
   const { scroll } = useScroll();
+  const { shouldShowNav } = useScrollDirection();
   const scrolled = scroll > 20;
   useFadeUp();
 
@@ -19,44 +21,34 @@ export default function LearnMore() {
       {/* Sticky Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-sm"
-            : "bg-transparent"
+          shouldShowNav && scrolled
+            ? "bg-white shadow-md translate-y-0"
+            : "translate-y-[-100%]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <Link href="/" className="flex items-center gap-2" data-testid="nav-brand">
               <img 
-                src={scrolled ? logoHouse : logoLight} 
+                src={logoHouse} 
                 alt="Marine Refuge" 
-                className={`h-8 transition-all duration-300 ${scrolled ? "w-8" : "w-auto"}`}
+                className={`h-8 w-8 transition-all duration-300`}
               />
-              <span className={`text-xl font-bold transition-colors duration-300 ${
-                scrolled ? "text-primary" : "text-white"
-              }`} data-testid="text-brand-name">
+              <span className={`text-xl font-bold transition-colors duration-300 text-black`} data-testid="text-brand-name">
                 Marine Refuge
               </span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className={`transition-colors font-medium ${
-                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-              }`} data-testid="nav-home">
+              <Link href="/" className={`transition-colors font-medium text-black hover:text-primary`} data-testid="nav-home">
                 Home
               </Link>
-              <Link href="/" className={`transition-colors font-medium ${
-                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-              }`} data-testid="nav-back-home">
+              <Link href="/" className={`transition-colors font-medium text-black hover:text-primary`} data-testid="nav-back-home">
                 <ArrowLeft className="inline-block w-5 h-5 mr-2" />
                 Back to Home
               </Link>
             </div>
             <div className="md:hidden">
-              <Link href="/" className={`inline-flex items-center gap-2 font-medium transition-colors duration-300 ${
-                scrolled
-                  ? "text-foreground hover:text-primary"
-                  : "text-white hover:text-accent"
-              }`} data-testid="nav-back-home-mobile">
+              <Link href="/" className={`inline-flex items-center gap-2 font-medium transition-colors duration-300 text-black hover:text-primary`} data-testid="nav-back-home-mobile">
                 <ArrowLeft className="w-5 h-5" />
                 Back
               </Link>

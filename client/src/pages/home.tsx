@@ -30,6 +30,7 @@ import technologyImage2 from "@assets/1_1763810432206.png";
 import { useState, useEffect, useRef } from "react";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { useScroll } from "@/contexts/scroll-context";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -335,6 +336,7 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
 
 export default function Home() {
   const { scroll } = useScroll();
+  const { shouldShowNav } = useScrollDirection();
   const scrolled = scroll > 20;
   useFadeUp();
 
@@ -350,63 +352,51 @@ export default function Home() {
       {/* Sticky Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-background/80 backdrop-blur-lg shadow-sm"
-            : "bg-transparent"
+          shouldShowNav && scrolled
+            ? "bg-white shadow-md translate-y-0"
+            : "translate-y-[-100%]"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
               <img 
-                src={scrolled ? logoHouse : logoLight} 
+                src={logoHouse} 
                 alt="Marine Refuge" 
-                className={`h-8 transition-all duration-300 ${scrolled ? "w-8" : "w-auto"}`}
+                className={`h-8 w-8 transition-all duration-300`}
               />
-              <span className={`text-xl font-bold transition-colors duration-300 ${
-                scrolled ? "text-primary" : "text-white"
-              }`} data-testid="text-brand-name">
+              <span className={`text-xl font-bold transition-colors duration-300 text-black`} data-testid="text-brand-name">
                 Marine Refuge
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => scrollToSection("home")}
-                className={`transition-colors font-medium ${
-                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-                }`}
+                className={`transition-colors font-medium text-black hover:text-primary`}
                 data-testid="nav-home"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className={`transition-colors font-medium ${
-                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-                }`}
+                className={`transition-colors font-medium text-black hover:text-primary`}
                 data-testid="nav-about"
               >
                 About Us
               </button>
               <button
                 onClick={() => scrollToSection("what-we-do")}
-                className={`transition-colors font-medium ${
-                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-                }`}
+                className={`transition-colors font-medium text-black hover:text-primary`}
                 data-testid="nav-what-we-do"
               >
                 What We Do
               </button>
-              <Link href="/learn-more" className={`transition-colors font-medium ${
-                scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-              }`} data-testid="nav-learn-more">
+              <Link href="/learn-more" className={`transition-colors font-medium text-black hover:text-primary`} data-testid="nav-learn-more">
                 Learn More
               </Link>
               <button
                 onClick={() => scrollToSection("contact")}
-                className={`transition-colors font-medium ${
-                  scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
-                }`}
+                className={`transition-colors font-medium text-black hover:text-primary`}
                 data-testid="nav-contact"
               >
                 Contact
