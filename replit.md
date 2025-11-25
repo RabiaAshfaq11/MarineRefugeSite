@@ -57,10 +57,12 @@ Preferred communication style: Simple, everyday language.
 
 ### Data Storage Solutions
 
-**Current Implementation**: In-memory storage using JavaScript Map objects for users. This is suitable for development and demonstration but not production-ready for data persistence.
+**Current Implementation**: In-memory storage using JavaScript Map objects for users, newsletter subscribers, and contact messages. This is suitable for development and demonstration but not production-ready for data persistence.
 
 **Database Schema**: Defined using Drizzle ORM with PostgreSQL dialect. The schema includes:
 - Users table with UUID primary keys, username, and password fields
+- Newsletter subscribers table with auto-incremented ID, email (unique), name, and subscription timestamp
+- Contact messages table with auto-incremented ID, name, email, subject, message content, and creation timestamp
 - Schema validation using Zod for type safety
 
 **ORM Choice**: Drizzle ORM chosen for its:
@@ -70,6 +72,26 @@ Preferred communication style: Simple, everyday language.
 - Integration with Zod for schema validation
 
 **Migration Strategy**: Drizzle Kit configured for schema migrations with files output to `./migrations` directory.
+
+### Newsletter and Contact Management System
+
+**Newsletter Subscription Feature**:
+- Table: `newsletter_subscribers` with fields: id, email (unique), name (optional), subscribedAt
+- Public endpoint: `POST /api/subscribe` - accepts name and email, returns 409 if duplicate
+- Admin endpoint: `GET /api/admin/newsletter` - returns all subscribers (IP-restricted)
+- Automatic confirmation email sent on successful subscription
+
+**Contact Form Feature**:
+- Table: `contact_messages` with fields: id, name, email, subject, message, createdAt
+- Public endpoint: `POST /api/contact` - accepts name, email, subject, message
+- Admin endpoint: `GET /api/admin/messages` - returns all contact messages (IP-restricted)
+- Automatic confirmation email sent to user and admin notification email
+- Admin email defaults to `process.env.ADMIN_EMAIL` or "admin@marinerefuge.local"
+
+**Admin Access Control**:
+- IP-based authorization using `process.env.ADMIN_IPS` (defaults to "127.0.0.1,::1")
+- Accessible from localhost by default
+- Set ADMIN_IPS environment variable for production access (comma-separated list)
 
 ### Authentication and Authorization
 
