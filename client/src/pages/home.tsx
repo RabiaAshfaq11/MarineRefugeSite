@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ChevronRight, Waves, Building2, Users, Shield, Linkedin, Mail, Phone, MapPin, Send } from "lucide-react";
+import { ChevronRight, Waves, Building2, Users, Shield, Linkedin, Mail, Phone, MapPin, Send, HelpCircle, FileEdit, Handshake } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -32,10 +32,11 @@ import { useFadeUp } from "@/hooks/use-fade-up";
 import { useScroll } from "@/contexts/scroll-context";
 
 const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Please enter a valid email"),
-  organization: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  phone: z.string().min(1, "Phone is required"),
+  message: z.string().min(1, "Message is required"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -44,10 +45,11 @@ function ContactForm() {
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      organization: "",
-      message: "",
+      firstName: "Alice",
+      lastName: "Smith",
+      email: "xyz@gmail.com",
+      phone: "+92 333444555",
+      message: "I want to know about...",
     },
   });
 
@@ -59,82 +61,131 @@ function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="contact-form">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">
-                Name <span className="text-destructive">*</span>
-              </FormLabel>
-              <FormControl>
-                <Input placeholder="Your name" {...field} data-testid="input-name" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="contact-form" style={{ fontFamily: "Inter, sans-serif" }}>
+        <div className="grid grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="firstName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+                  First Name
+                </FormLabel>
+                <FormControl>
+                  <input
+                    {...field}
+                    className="w-full bg-[#3A5A5A] text-white placeholder-gray-400 px-4 py-3 rounded-t border-b-2 border-[#20C997] focus:outline-none"
+                    placeholder="Alice"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="input-first-name"
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">
-                Email <span className="text-destructive">*</span>
-              </FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="your@email.com" {...field} data-testid="input-email" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="lastName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+                  Last Name
+                </FormLabel>
+                <FormControl>
+                  <input
+                    {...field}
+                    className="w-full bg-[#3A5A5A] text-white placeholder-gray-400 px-4 py-3 rounded-t border-b-2 border-[#20C997] focus:outline-none"
+                    placeholder="Smith"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="input-last-name"
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+        </div>
 
-        <FormField
-          control={form.control}
-          name="organization"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-foreground">Organization</FormLabel>
-              <FormControl>
-                <Input placeholder="Your organization (optional)" {...field} data-testid="input-organization" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="grid grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+                  Your Email
+                </FormLabel>
+                <FormControl>
+                  <input
+                    {...field}
+                    type="email"
+                    className="w-full bg-[#3A5A5A] text-white placeholder-gray-400 px-4 py-3 rounded-t border-b-2 border-[#20C997] focus:outline-none"
+                    placeholder="xyz@gmail.com"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="input-email"
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xs uppercase text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+                  Your Phone
+                </FormLabel>
+                <FormControl>
+                  <input
+                    {...field}
+                    type="tel"
+                    className="w-full bg-[#3A5A5A] text-white placeholder-gray-400 px-4 py-3 rounded-t border-b-2 border-[#20C997] focus:outline-none"
+                    placeholder="+92 333444555"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="input-phone"
+                  />
+                </FormControl>
+                <FormMessage className="text-white" />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <FormField
           control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-foreground">
-                Message <span className="text-destructive">*</span>
+              <FormLabel className="text-xs uppercase text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+                Your Message
               </FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Tell us about your interest in amphibious housing..."
-                  className="resize-none min-h-32"
+                <textarea
                   {...field}
+                  className="w-full bg-[#3A5A5A] text-white placeholder-gray-400 px-4 py-3 rounded-t border-b-2 border-[#20C997] focus:outline-none min-h-[120px] resize-none"
+                  placeholder="I want to know about..."
+                  style={{ fontFamily: "Inter, sans-serif" }}
                   data-testid="textarea-message"
                 />
               </FormControl>
-              <FormMessage />
+              <FormMessage className="text-white" />
             </FormItem>
           )}
         />
 
-        <Button
+        <button
           type="submit"
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-          data-testid="button-send-message"
+          className="w-full bg-[#20C997] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#20C997]/90 transition-colors"
+          style={{ fontFamily: "Inter, sans-serif" }}
+          data-testid="button-submit"
         >
-          <Send className="w-4 h-4 mr-2" />
-          Send Message
-        </Button>
+          Submit
+        </button>
       </form>
     </Form>
   );
@@ -336,7 +387,56 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
 export default function Home() {
   const { scroll } = useScroll();
   const scrolled = scroll > 20;
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   useFadeUp();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Clear any existing timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      // If at the top, always show navbar (transparent)
+      if (currentScrollY <= 20) {
+        setIsNavbarVisible(true);
+        setLastScrollY(currentScrollY);
+        return;
+      }
+
+      // Determine scroll direction
+      const scrollingDown = currentScrollY > lastScrollY;
+      
+      if (scrollingDown) {
+        // Scrolling down - show navbar (white)
+        setIsNavbarVisible(true);
+      } else {
+        // Scrolling up - hide navbar
+        setIsNavbarVisible(false);
+      }
+
+      // Hide navbar when scroll stops (static)
+      scrollTimeoutRef.current = setTimeout(() => {
+        if (currentScrollY > 20) {
+          setIsNavbarVisible(false);
+        }
+      }, 200);
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [lastScrollY]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -349,7 +449,9 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       {/* Sticky Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+          !isNavbarVisible && scrolled ? "-translate-y-full" : "translate-y-0"
+        } ${
           scrolled
             ? "bg-white shadow-md"
             : "bg-transparent"
@@ -358,12 +460,24 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-2" data-testid="nav-brand">
-              <img 
-                src={scrolled ? logoHouse : logoLight} 
-                alt="Marine Refuge" 
-                className={`h-8 transition-all duration-300 ${scrolled ? "w-8" : "w-auto"}`}
-              />
-              <span className={`text-xl font-bold transition-colors duration-300 ${
+              {scrolled ? (
+                <img 
+                  src={logoGreen} 
+                  alt="Marine Refuge" 
+                  className="h-8 w-8 transition-all duration-300 ease-in-out"
+                />
+              ) : (
+                <img 
+                  src={logoLight} 
+                  alt="Marine Refuge" 
+                  className="h-8 w-auto transition-all duration-300 ease-in-out"
+                  style={{ 
+                    filter: "brightness(0) invert(1)",
+                    opacity: 1
+                  }}
+                />
+              )}
+              <span className={`text-xl font-bold transition-colors duration-300 ease-in-out ${
                 scrolled ? "text-primary" : "text-white"
               }`} data-testid="text-brand-name">
                 Marine Refuge
@@ -372,7 +486,7 @@ export default function Home() {
             <div className="hidden md:flex items-center gap-8">
               <button
                 onClick={() => scrollToSection("home")}
-                className={`transition-colors font-medium ${
+                className={`transition-colors duration-300 ease-in-out font-medium ${
                   scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
                 }`}
                 data-testid="nav-home"
@@ -381,7 +495,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className={`transition-colors font-medium ${
+                className={`transition-colors duration-300 ease-in-out font-medium ${
                   scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
                 }`}
                 data-testid="nav-about"
@@ -390,21 +504,21 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollToSection("what-we-do")}
-                className={`transition-colors font-medium ${
+                className={`transition-colors duration-300 ease-in-out font-medium ${
                   scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
                 }`}
                 data-testid="nav-what-we-do"
               >
                 What We Do
               </button>
-              <Link href="/learn-more" className={`transition-colors font-medium ${
+              <Link href="/learn-more" className={`transition-colors duration-300 ease-in-out font-medium ${
                 scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
               }`} data-testid="nav-learn-more">
                 Learn More
               </Link>
               <button
                 onClick={() => scrollToSection("contact")}
-                className={`transition-colors font-medium ${
+                className={`transition-colors duration-300 ease-in-out font-medium ${
                   scrolled ? "text-foreground hover:text-primary" : "text-white hover:text-accent"
                 }`}
                 data-testid="nav-contact"
@@ -861,143 +975,204 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Get Involved Section */}
-      <section id="contact" className="py-20 md:py-32 bg-background">
+      {/* Contact Us Section */}
+      <section id="contact" className="py-20 md:py-32 bg-white" style={{ fontFamily: "Inter, sans-serif" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6" data-testid="text-get-involved-title">
-              Get Involved
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto" data-testid="text-get-involved-subtitle">
-              Join us in building climate-resilient communities. Whether you're a government, NGO, investor, or community leader, there's a role for you in this movement.
-            </p>
-          </div>
+          {/* Header */}
+          <h1 className="text-center text-6xl font-bold text-black mb-16" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-contact-title">
+            Contact us.
+          </h1>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Left Column - Contact Form */}
-            <div className="bg-muted/30 rounded-md p-8">
-              <h3 className="text-2xl font-bold text-foreground mb-8" data-testid="text-contact-form-title">
-                Send Us a Message
-              </h3>
-              <ContactForm />
+          {/* Three Cards Section */}
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
+            {/* Card 1: General Inquiries */}
+            <div className="bg-[#F8F8F8] rounded-lg p-10" data-testid="card-general-inquiries">
+              <div className="w-16 h-16 rounded-full bg-[#20C997] flex items-center justify-center mb-6">
+                <HelpCircle className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "Inter, sans-serif" }}>General Inquiries</h3>
+              <p className="text-base text-gray-700" style={{ fontFamily: "Inter, sans-serif" }}>
+                For any general questions or information about our services, feel free to reach out.
+              </p>
             </div>
 
-            {/* Right Column - Ways to Contribute and Contact Info */}
-            <div className="space-y-12">
-              <div className="bg-accent/10 rounded-md p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6" data-testid="text-ways-to-contribute-title">
-                  Ways to Contribute
-                </h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-partner-title">
-                      <span className="w-3 h-3 bg-primary rounded-full" />
-                      Partner with us:
-                    </h4>
-                    <p className="text-muted-foreground text-sm" data-testid="text-partner-description">
-                      Governments and NGOs can deploy our solutions in vulnerable communities
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-invest-title">
-                      <span className="w-3 h-3 bg-primary rounded-full" />
-                      Invest in impact:
-                    </h4>
-                    <p className="text-muted-foreground text-sm" data-testid="text-invest-description">
-                      Support scalable climate adaptation technology
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-research-title">
-                      <span className="w-3 h-3 bg-primary rounded-full" />
-                      Research collaboration:
-                    </h4>
-                    <p className="text-muted-foreground text-sm" data-testid="text-research-description">
-                      Academic institutions can help us innovate further
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-2 flex items-center gap-2" data-testid="text-spread-title">
-                      <span className="w-3 h-3 bg-primary rounded-full" />
-                      Spread the word:
-                    </h4>
-                    <p className="text-muted-foreground text-sm" data-testid="text-spread-description">
-                      Help us reach more communities in need
-                    </p>
-                  </div>
-                </div>
+            {/* Card 2: Research collaboration */}
+            <div className="bg-[#F8F8F8] rounded-lg p-10" data-testid="card-research-collaboration">
+              <div className="w-16 h-16 rounded-full bg-[#20C997] flex items-center justify-center mb-6">
+                <FileEdit className="w-8 h-8 text-white" />
               </div>
+              <h3 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Research collaboration</h3>
+              <p className="text-base text-gray-700" style={{ fontFamily: "Inter, sans-serif" }}>
+                Academic institutions can help us innovate further. We're open to research.
+              </p>
+            </div>
 
-              <div className="bg-muted/30 rounded-md p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6" data-testid="text-contact-info-title">
-                  Contact Information
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex gap-4" data-testid="contact-email">
-                    <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-foreground">Email</p>
-                      <a href="mailto:contact@marinerefuge.org" className="text-primary hover:underline" data-testid="link-email">
-                        contact@marinerefuge.org
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex gap-4" data-testid="contact-phone">
-                    <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-foreground">Phone</p>
-                      <a href="tel:+1234567890" className="text-primary hover:underline" data-testid="link-phone">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
-                  <div className="flex gap-4" data-testid="contact-office">
-                    <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-bold text-foreground">Office</p>
-                      <p className="text-muted-foreground" data-testid="text-office-address">
-                        123 Climate Innovation Drive<br />
-                        Islamabad, Pakistan
-                      </p>
-                    </div>
-                  </div>
+            {/* Card 3: Partnerships */}
+            <div className="bg-[#F8F8F8] rounded-lg p-10" data-testid="card-partnerships">
+              <div className="w-16 h-16 rounded-full bg-[#20C997] flex items-center justify-center mb-6">
+                <Handshake className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Partnerships</h3>
+              <p className="text-base text-gray-700" style={{ fontFamily: "Inter, sans-serif" }}>
+                Interested in working together to create sustainable solutions? Contact our team.
+              </p>
+            </div>
+          </div>
+
+          {/* Two Column Layout */}
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Left Column - Contact Information */}
+            <div>
+              <p className="text-sm text-gray-700 mb-4" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-get-in-touch-subtitle">
+                • Get in touch.
+              </p>
+              <h2 className="text-4xl font-bold text-black mb-6" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-contact-subtitle">
+                Turning climate challenges into sustainable opportunities.
+              </h2>
+              <p className="text-base text-gray-700 mb-8 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+                Our team is here to support your sustainable goals. Whether you have questions, need assistance, or want to collaborate, we're ready to help you take the next step toward a greener future
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex gap-4" data-testid="contact-phone">
+                  <Phone className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                  <p className="text-black" style={{ fontFamily: "Inter, sans-serif" }}>92 444999332</p>
+                </div>
+                <div className="flex gap-4" data-testid="contact-address">
+                  <MapPin className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                  <p className="text-black" style={{ fontFamily: "Inter, sans-serif" }}>NSTP, H-12 Islamabad, Pakistan</p>
+                </div>
+                <div className="flex gap-4" data-testid="contact-email">
+                  <Mail className="w-5 h-5 text-black flex-shrink-0 mt-1" />
+                  <p className="text-black" style={{ fontFamily: "Inter, sans-serif" }}>marinerefuge@gmail.com</p>
                 </div>
               </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="bg-[#2F4F4F] rounded-lg p-10">
+              <h3 className="text-4xl font-bold text-white mb-8" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-contact-form-title">
+                Send us a message
+              </h3>
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-12">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 h-full flex flex-col justify-between min-h-64">
-          <div className="border-t border-background/20 pt-6 mb-8">
-            <p className="text-sm text-background/70" data-testid="text-footer-copyright">
-              © 2025 Marine Refuge. All rights reserved.
-            </p>
-          </div>
-          <div className="pt-12 pl-0 flex items-start justify-between">
+      <footer className="bg-[#1A202C] text-white py-12" style={{ fontFamily: "Inter, sans-serif" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          {/* Copyright Top-Left */}
+          <p className="text-sm text-white mb-8" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-footer-copyright">
+            2025 Marine Refuge. All rights reserved.
+          </p>
+
+          {/* Main Footer Content */}
+          <div className="grid md:grid-cols-2 gap-12 mb-8">
+            {/* Left: Brand */}
             <div>
-              <div className="flex items-center gap-2 mb-3" data-testid="footer-brand">
-                <img src={logoGreen} alt="Marine Refuge" className="w-8 h-8 brightness-200" />
-                <span className="text-xl font-bold" data-testid="text-footer-brand-name">Marine Refuge</span>
+              <div className="flex items-center gap-3 mb-3" data-testid="footer-brand">
+                <img 
+                  src={logoGreen} 
+                  alt="Marine Refuge" 
+                  className="w-8 h-8"
+                  style={{ 
+                    filter: "brightness(0) invert(1)",
+                    opacity: 1
+                  }}
+                />
+                <span className="text-xl font-bold text-white" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-footer-brand-name">Marine Refuge</span>
               </div>
-              <p className="text-sm text-background/70 max-w-xs" data-testid="text-footer-tagline">
-                Building climate-resilient communities through innovative amphibious housing
+              <p className="text-sm text-gray-300" style={{ fontFamily: "Inter, sans-serif" }} data-testid="text-footer-tagline">
+                Homes that stand by you
               </p>
             </div>
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://www.linkedin.com/company/marinerefuge/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-background hover:text-accent transition-colors"
-                data-testid="link-linkedin"
-                aria-label="Marine Refuge LinkedIn"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
+
+            {/* Right: Newsletter and Navigation */}
+            <div>
+              {/* Newsletter Subscription */}
+              <div className="mb-8">
+                <h4 className="text-lg font-bold mb-4" style={{ fontFamily: "Inter, sans-serif", color: "#00FFFF" }} data-testid="text-newsletter-title">
+                  Newsletter subcription
+                </h4>
+                <div className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="YOUR EMAIL*"
+                    className="flex-1 bg-[#2F4F4F] text-white placeholder-gray-400 px-4 py-3 rounded focus:outline-none"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="input-newsletter-email"
+                  />
+                  <button
+                    type="button"
+                    className="bg-[#00FFFF] text-white px-6 py-3 rounded font-medium hover:bg-[#00FFFF]/90 transition-colors"
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                    data-testid="button-subscribe"
+                  >
+                    Subcribe
+                  </button>
+                </div>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-3">
+                <button
+                  onClick={() => scrollToSection("home")}
+                  className="text-base text-white text-left hover:underline"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                  data-testid="footer-nav-home"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-base text-white text-left hover:underline"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                  data-testid="footer-nav-about"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => scrollToSection("what-we-do")}
+                  className="text-base text-white text-left hover:underline"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                  data-testid="footer-nav-what-we-do"
+                >
+                  What we do
+                </button>
+                <Link
+                  href="/learn-more"
+                  className="text-base text-white hover:underline"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                  data-testid="footer-nav-learn-more"
+                >
+                  Learn more
+                </Link>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-base text-white text-left hover:underline"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                  data-testid="footer-nav-contact"
+                >
+                  Contact Us
+                </button>
+              </nav>
             </div>
+          </div>
+
+          {/* LinkedIn Icon Bottom-Right */}
+          <div className="flex justify-end">
+            <a
+              href="https://www.linkedin.com/company/marinerefuge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:opacity-80 transition-opacity"
+              data-testid="link-linkedin"
+              aria-label="Marine Refuge LinkedIn"
+            >
+              <Linkedin className="w-8 h-8" />
+            </a>
           </div>
         </div>
       </footer>
