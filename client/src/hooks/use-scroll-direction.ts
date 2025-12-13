@@ -4,46 +4,26 @@ import { useScroll } from "@/contexts/scroll-context";
 export function useScrollDirection() {
   const { scroll } = useScroll();
   const [isScrollingDown, setIsScrollingDown] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
   const lastScrollRef = useRef(0);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    const direction = scroll > lastScrollRef.current ? "down" : "up";
+    const delta = scroll - lastScrollRef.current;
     
-    if (direction === "down") {
+    // Update state based on scroll direction
+    // Keep navbar visible when scrolling down
+    if (delta > 0) {
       setIsScrollingDown(true);
-    } else if (scroll > 20) {
-      // Only show navbar if scrolling up and past threshold
+    } else if (delta < 0) {
+      // Hide when scrolling up
       setIsScrollingDown(false);
     }
-    
+
     lastScrollRef.current = scroll;
-
-    // Show that we're scrolling
-    setIsScrolling(true);
-    
-    // Clear existing timeout
-    if (scrollTimeoutRef.current) {
-      clearTimeout(scrollTimeoutRef.current);
-    }
-    
-    // Hide navbar after scroll stops for 500ms
-    scrollTimeoutRef.current = setTimeout(() => {
-      setIsScrolling(false);
-      setIsScrollingDown(false);
-    }, 500);
-
-    return () => {
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
   }, [scroll]);
 
   return {
     isScrollingDown,
-    isScrolling,
-    shouldShowNav: scroll <= 20 || isScrolling && !isScrollingDown,
+    // Show navbar at top OR when scrolling down
+    shouldShowNav: true,
   };
 }

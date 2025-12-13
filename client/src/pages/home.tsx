@@ -27,9 +27,10 @@ import maryamPhoto from "@assets/image_1763827218881.png";
 import ayaanPhoto from "@assets/image_1763827286844.png";
 import technologyImage1 from "@assets/3_1763810423345.png";
 import technologyImage2 from "@assets/1_1763810432206.png";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFadeUp } from "@/hooks/use-fade-up";
 import { useScroll } from "@/contexts/scroll-context";
+import { useScrollDirection } from "@/hooks/use-scroll-direction";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
@@ -387,56 +388,8 @@ function TeamSection({ maryamPhoto, ayaanPhoto }: { maryamPhoto: string; ayaanPh
 export default function Home() {
   const { scroll } = useScroll();
   const scrolled = scroll > 20;
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { shouldShowNav } = useScrollDirection();
   useFadeUp();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Clear any existing timeout
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-
-      // If at the top, always show navbar (transparent)
-      if (currentScrollY <= 20) {
-        setIsNavbarVisible(true);
-        setLastScrollY(currentScrollY);
-        return;
-      }
-
-      // Determine scroll direction
-      const scrollingDown = currentScrollY > lastScrollY;
-      
-      if (scrollingDown) {
-        // Scrolling down - show navbar (white)
-        setIsNavbarVisible(true);
-      } else {
-        // Scrolling up - hide navbar
-        setIsNavbarVisible(false);
-      }
-
-      // Hide navbar when scroll stops (static)
-      scrollTimeoutRef.current = setTimeout(() => {
-        if (currentScrollY > 20) {
-          setIsNavbarVisible(false);
-        }
-      }, 200);
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-    };
-  }, [lastScrollY]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -450,7 +403,7 @@ export default function Home() {
       {/* Sticky Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-          !isNavbarVisible && scrolled ? "-translate-y-full" : "translate-y-0"
+          !shouldShowNav && scrolled ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
         } ${
           scrolled
             ? "bg-white shadow-md"
