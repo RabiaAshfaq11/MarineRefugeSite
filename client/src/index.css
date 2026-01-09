@@ -322,6 +322,75 @@
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
     inset: -1px;
   }
+
+  /* UPDATED: Add seamless carousel animations */
+
+  /* Seamless infinite scroll animation */
+  @keyframes seamlessScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+
+  @keyframes seamlessScrollReverse {
+    0% {
+      transform: translateX(-33.333%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Smooth pause on hover */
+  .logo-carousel:hover {
+    animation-play-state: paused;
+  }
+
+  /* GPU acceleration for smooth performance */
+  [data-testid="logo-carousel"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Ensure proper alignment */
+  @supports (scroll-behavior: smooth) {
+    [data-testid="logo-carousel"] {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    @keyframes seamlessScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-33.333%);
+      }
+    }
+
+    @keyframes seamlessScrollReverse {
+      0% {
+        transform: translateX(-33.333%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  /* Performance optimization */
+  @supports (will-change: transform) {
+    [data-testid="logo-carousel-track"],
+    [data-testid="logo-carousel-track-advanced"] {
+      will-change: transform;
+    }
+  }
 }
 
 /* Scroll Animations */

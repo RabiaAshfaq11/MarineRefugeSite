@@ -8,22 +8,16 @@ export function useScrollDirection() {
 
   useEffect(() => {
     const delta = scroll - lastScrollRef.current;
-    
-    // Update state based on scroll direction
-    // Keep navbar visible when scrolling down
-    if (delta > 0) {
-      setIsScrollingDown(true);
-    } else if (delta < 0) {
-      // Hide when scrolling up
-      setIsScrollingDown(false);
-    }
 
-    lastScrollRef.current = scroll;
+    if (Math.abs(delta) > 5) {
+      setIsScrollingDown(delta > 0);
+      lastScrollRef.current = scroll;
+    }
   }, [scroll]);
 
   return {
     isScrollingDown,
-    // Show navbar at top OR when scrolling down
-    shouldShowNav: true,
+    shouldShowNav: scroll < 100 || !isScrollingDown,
+    currentScroll: scroll,
   };
 }

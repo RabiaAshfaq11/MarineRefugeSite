@@ -8,6 +8,8 @@ import express, {
 } from "express";
 
 import { registerRoutes } from "./routes";
+import { connectDB } from "./config/database";
+import subscriptionRoutes from "./routes/subscriptionRoutes";
 
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
@@ -22,17 +24,27 @@ export function log(message: string, source = "express") {
 
 export const app = express();
 
-declare module 'http' {
+declare module "http" {
   interface IncomingMessage {
-    rawBody: unknown
+    rawBody: unknown;
   }
 }
-app.use(express.json({
-  verify: (req, _res, buf) => {
-    req.rawBody = buf;
-  }
-}));
+app.use(
+  express.json({
+    verify: (req, _res, buf) => {
+      req.rawBody = buf;
+    },
+  })
+);
 app.use(express.urlencoded({ extended: false }));
+
+// Initialize MongoDB connection
+connectDB().catch((err) => {
+  console.error("Failed to connect to MongoDB:", err);
+});
+
+// Register subscription and contact routes
+app.use("/api", subscriptionRoutes);
 
 app.use((req, res, next) => {
   const start = Date.now();
@@ -65,7 +77,7 @@ app.use((req, res, next) => {
 });
 
 export default async function runApp(
-  setup: (app: Express, server: Server) => Promise<void>,
+  setup: (app: Express, server: Server) => Promise<void>
 ) {
   const server = await registerRoutes(app);
 
@@ -77,15 +89,9 @@ export default async function runApp(
     throw err;
   });
 
-  // importantly run the final setup after setting up all the other routes so
-  // the catch-all route doesn't interfere with the other routes
   await setup(app, server);
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || '5000', 10);
+  const port = parseInt(process.env.PORT || "5000", 10);
   server.listen(port, "127.0.0.1", () => {
     log(`serving on port ${port}`);
   });
