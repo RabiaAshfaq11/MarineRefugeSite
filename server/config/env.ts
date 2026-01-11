@@ -11,9 +11,8 @@ interface EnvConfig {
 }
 
 function validateEnv(): EnvConfig {
+  // SENDGRID variables are now optional for deployment without email functionality
   const requiredEnvVars = [
-    "SENDGRID_API_KEY",
-    "SENDGRID_SENDER_EMAIL",
     "MONGODB_URI",
   ];
 
@@ -22,6 +21,13 @@ function validateEnv(): EnvConfig {
   if (missingVars.length > 0) {
     console.warn(
       `Warning: Missing environment variables: ${missingVars.join(", ")}`
+    );
+  }
+
+  // Warn if SendGrid is not configured (but don't fail)
+  if (!process.env.SENDGRID_API_KEY) {
+    console.warn(
+      "⚠️ SENDGRID_API_KEY not set - Email functionality will be disabled"
     );
   }
 

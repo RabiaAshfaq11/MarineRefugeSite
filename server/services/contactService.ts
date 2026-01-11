@@ -1,11 +1,15 @@
 // Service for contact form handling, storage, and email notifications
 
+// SENDGRID TEMPORARILY DISABLED FOR DEPLOYMENT
 import sgMail from "@sendgrid/mail";
 import { Contact } from "../models/Contact";
 import { env } from "../config/env";
 import { log } from "../app";
 
-sgMail.setApiKey(env.SENDGRID_API_KEY);
+// Only initialize SendGrid if API key is available
+if (env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(env.SENDGRID_API_KEY);
+}
 
 interface ContactData {
   firstName: string;
@@ -51,8 +55,14 @@ export const contactService = {
 
   /**
    * Send notification email to admin
+   * TEMPORARILY DISABLED: Returns immediately if SendGrid is not configured
    */
   async sendAdminNotification(data: ContactData) {
+    if (!env.SENDGRID_API_KEY) {
+      log(`📧 [DISABLED] Would send admin notification for ${data.email} (SendGrid not configured)`, "contactService");
+      return; // Silently skip
+    }
+    
     try {
       const adminEmails = ["marinerefugestartup@gmail.com"];
 
@@ -107,8 +117,14 @@ export const contactService = {
 
   /**
    * Send confirmation email to user
+   * TEMPORARILY DISABLED: Returns immediately if SendGrid is not configured
    */
   async sendUserConfirmation(data: ContactData) {
+    if (!env.SENDGRID_API_KEY) {
+      log(`📧 [DISABLED] Would send confirmation to ${data.email} (SendGrid not configured)`, "contactService");
+      return; // Silently skip
+    }
+    
     try {
       const confirmationContent = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

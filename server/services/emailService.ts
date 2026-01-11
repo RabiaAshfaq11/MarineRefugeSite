@@ -1,9 +1,12 @@
+// SENDGRID TEMPORARILY DISABLED FOR DEPLOYMENT
 import sgMail from "@sendgrid/mail";
 import { env } from "../config/env";
 
-// Initialize SendGrid
+// Initialize SendGrid only if API key is available
 if (env.SENDGRID_API_KEY) {
   sgMail.setApiKey(env.SENDGRID_API_KEY);
+} else {
+  console.warn("⚠️ SendGrid is disabled - SENDGRID_API_KEY not configured");
 }
 
 export interface EmailOptions {
@@ -18,10 +21,12 @@ export class EmailService {
 
   /**
    * Send a welcome email to a new subscriber
+   * TEMPORARILY DISABLED: Returns immediately if SendGrid is not configured
    */
   static async sendWelcomeEmail(email: string): Promise<void> {
     if (!env.SENDGRID_API_KEY) {
-      throw new Error("SendGrid API key is not configured");
+      console.log(`📧 [DISABLED] Would send welcome email to ${email} (SendGrid not configured)`);
+      return; // Silently skip - no error thrown
     }
 
     const subject = "Welcome to Marine Refuge Updates! 🌊";
