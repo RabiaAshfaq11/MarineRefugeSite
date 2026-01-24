@@ -92,7 +92,7 @@ export default async function runApp(
   await setup(app, server);
 
   const port = parseInt(process.env.PORT || "5000", 10);
-  server.listen(port, "127.0.0.1", () => {
+  server.listen(port, "0.0.0.0", () => {
     log(`serving on port ${port}`);
   });
 }
