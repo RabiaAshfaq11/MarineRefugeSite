@@ -1117,7 +1117,7 @@ export default function Home() {
               Affiliated with
             </h3>
 
-            <AffiliatedLogosCarousel
+            <AffiliatedLogosCarouselAdvanced
               logos={affiliatedLogos}
               duration={30}
               pauseOnHover={true}
